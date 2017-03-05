@@ -1,5 +1,0 @@
-g++ -fPIC -c sort.cpp
-g++ -shared -o libsor.so sort.o
-g++ main.o -L. -lsor -o result
-LD_LIBRARY_PATH=/Home_Work_Part_1/Lib
-export LD_LIBRARY_PATH
