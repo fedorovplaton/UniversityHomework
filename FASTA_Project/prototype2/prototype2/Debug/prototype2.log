@@ -1,0 +1,7 @@
+﻿  Source.cpp
+c:\users\asus\desktop\fasta_project\prototype2\prototype2\source.cpp(13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+c:\users\asus\desktop\fasta_project\prototype2\prototype2\source.cpp(17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+  prototype2.vcxproj -> C:\Users\ASUS\Desktop\FASTA_Project\prototype2\Debug\prototype2.exe
+  prototype2.vcxproj -> C:\Users\ASUS\Desktop\FASTA_Project\prototype2\Debug\prototype2.pdb (Full PDB)
