@@ -1,0 +1,8 @@
+﻿  threee.cpp
+c:\users\asus\desktop\threee_numbers\threee_numbers\threee.cpp(30): warning C4091: typedef : пропускается слева от "threee", когда ни одна переменная не объявлена
+  Source.cpp
+c:\users\asus\desktop\threee_numbers\threee_numbers\threee.cpp(30): warning C4091: typedef : пропускается слева от "threee", когда ни одна переменная не объявлена
+c:\users\asus\desktop\threee_numbers\threee_numbers\threee.h(7): warning C4091: typedef : пропускается слева от "threee", когда ни одна переменная не объявлена
+  Создание кода...
+  Threee_Numbers.vcxproj -> C:\Users\ASUS\Desktop\Threee_Numbers\Debug\Threee_Numbers.exe
+  Threee_Numbers.vcxproj -> C:\Users\ASUS\Desktop\Threee_Numbers\Debug\Threee_Numbers.pdb (Full PDB)
