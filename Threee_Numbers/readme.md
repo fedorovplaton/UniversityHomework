@@ -1,0 +1,1 @@
+# Sample of simple encapsulation
