@@ -1,0 +1,1 @@
+# Thread-save structure
