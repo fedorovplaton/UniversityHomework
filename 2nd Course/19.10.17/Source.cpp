@@ -1,31 +1,25 @@
-#include<iostream>
-#include<thread>
-#include<mutex>
-#include"header.h"
+#include "Thread_safe_vector.h"
 
 using namespace std;
 
-void f(int &data) {
-	data++;
-	cout << data;
+void prod(thread_safe_vector <int> &vec)
+{
+	vec.push_back(vec[vec.size() - 1] * vec[vec.size() - 2]);
 }
 
-void f1(threadsafe_list<int> list) {
-	list.for_each(f);
-}
-
-int main() {
-	unsigned threads = 10;
-	thread *arr = new thread[threads];
-	threadsafe_list <int> list;
-	for (unsigned i = 0; i < 5; i++) {
-		list.push_front(i);
+int main()
+{
+	thread_safe_vector <int> vec(2);
+	vec[0] = 1;
+	vec[1] = 2;
+	thread *t = new thread[10];
+	for (unsigned i = 0; i < 10; i++) {
+		t[i] = thread(prod, &vec);
 	}
-	for (unsigned i = 0; i < threads; i++) {
-		arr[i] = thread(f1,list);
+	for (unsigned i = 0; i < 10; i++) {
+		t[i].join();
 	}
-	for (unsigned i = 0; i < threads; i++) {
-		arr[i].join();
-	}
-
+	for (unsigned i = 0; i < vec.size(); i++)
+		cout << vec[i];
+	return 0;
 }
