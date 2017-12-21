@@ -23,7 +23,21 @@ void Mergesort(vector <int> &arr, int maxThreads = 0) {
 
 		vector <int> LeftArr;
 		vector <int> RightArr;
+		unsigned LeftIndex = 0;
+		unsigned RightIndex = 0;
+		for (unsigned i = 0; i < arr.size(); i++) {
+			if (LeftIndex < LeftArr.size() && (RightIndex >= RightArr.size() || LeftArr[LeftIndex] <= RightArr[RightIndex])) {
+				arr[i] = LeftArr[LeftIndex];
+				LeftIndex++;
+			}
+			else if (RightIndex < RightArr.size()) {
+				arr[i] = RightArr[RightIndex];
+				RightIndex++;
+			}
+			else {
 
+			}
+		}
 		for (unsigned i = 0; i < arr.size(); i++) {
 			if (i < length) {
 				LeftArr.push_back(arr[i]);
@@ -51,21 +65,7 @@ void Mergesort(vector <int> &arr, int maxThreads = 0) {
 			RightThread.join();
 		}
 
-		unsigned LeftIndex = 0;
-		unsigned RightIndex = 0;
-		for (unsigned i = 0; i < arr.size(); i++) {
-			if (LeftIndex < LeftArr.size() && (RightIndex >= RightArr.size() || LeftArr[LeftIndex] <= RightArr[RightIndex])) {
-				arr[i] = LeftArr[LeftIndex];
-				LeftIndex++;
-			}
-			else if (RightIndex < RightArr.size()) {
-				arr[i] = RightArr[RightIndex];
-				RightIndex++;
-			}
-			else {
-
-			}
-		}
+		
 	}
 	return;
 }
