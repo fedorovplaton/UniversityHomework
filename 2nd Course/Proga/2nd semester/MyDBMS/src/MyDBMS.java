@@ -1,5 +1,5 @@
 /**
- * Created by Тимур on 08.03.2018.
+ * MyDBMS has been created by moldybizkit on 09.03.2018.
  */
 
 import java.util.*;
@@ -9,9 +9,9 @@ class Doc{
     private String date;
     private boolean sex;
     private int salary;
+    private int id;
 
     public Doc(){
-
     }
 
     public Doc(String name,
@@ -22,6 +22,27 @@ class Doc{
         this.date=date;
         this.sex=sex;
         this.salary=salary;
+    }
+
+    public void set_id(int i){
+        this.id=i;
+    }
+
+    public void read(Scanner in){
+        this.name=in.next();
+        this.date=in.next();
+        if (in.next().equalsIgnoreCase("male")){
+            this.sex=true;
+        }
+        this.salary=in.nextInt();
+    }
+
+    public void print(){
+        if (this.sex){
+            System.out.println(name+" "+date+" male "+" "+salary+" "+id);
+        } else{
+            System.out.println(name+" "+date+" female "+" "+salary+" "+id);
+        }
     }
 
 }
@@ -45,19 +66,20 @@ class Pacient {
         this.name=name;
         this.date=date;
         this.sex=sex;
-        this.weight=weight;
-        this.id=id;
+        this.weight=weight;;
+    }
+
+    public void set_id(int i){
+        this.id=i;
     }
 
     public void read(Scanner in){
         this.name=in.next();
         this.date=in.next();
-        String s=in.next();
-        if (s.equalsIgnoreCase("male")){
+        if (in.next().equalsIgnoreCase("male")){
             this.sex=true;
         }
         this.weight=in.nextInt();
-        this.id=in.nextInt();
     }
 
     public void print(){
@@ -68,20 +90,77 @@ class Pacient {
         }
     }
 }
+
+
 public class MyDBMS {
 
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Vector pacients=new Vector();
-        for (int i=0;i<3;i++){
+        Vector doctors=new Vector();
+        String s=in.next();
+        int i=0;
+        int j=0;
+        while (!s.equalsIgnoreCase("quit")){
+            if (s.equalsIgnoreCase("create")){
+                s=in.next();
+                if (s.equalsIgnoreCase("table")) {
+                }
+            }
+            if (s.equalsIgnoreCase("add")){
+                s=in.next();
+                if (s.equalsIgnoreCase("patient")){
+                    Pacient pacient=new Pacient();
+                    pacient.read(in);
+                    pacient.set_id(i);
+                    pacients.addElement(pacient);
+                    pacient=(Pacient)pacients.elementAt(i);
+                    pacient.print();
+                    i++;
+                } else if (s.equalsIgnoreCase("doctor")){
+                    Doc doc=new Doc();
+                    doc.read(in);
+                    doc.set_id(j);
+                    doctors.addElement(doc);
+                    doc=(Doc)doctors.elementAt(j);
+                    doc.print();
+                    j++;
+                } else {
+                    Pacient pacient=new Pacient();
+                    pacient.read(in);
+                    pacient.set_id(i);
+                    pacients.addElement(pacient);
+                    pacient=(Pacient)pacients.elementAt(i);
+                    pacient.print();
+                    i++;
+                    Doc doc=new Doc();
+                    doc.read(in);
+                    doc.set_id(j);
+                    doctors.addElement(doc);
+                    doc=(Doc)doctors.elementAt(j);
+                    doc.print();
+                    j++;
+                }
 
-            Pacient My=new Pacient();
-            My.read(in);
-            pacients.addElement(My);
-            My=(Pacient)pacients.elementAt(i);
-            My.print();
+            }
+            s=in.next();
         }
+
+        /*for (int i=0;i<3;i++){
+
+            Pacient pacient=new Pacient();
+            pacient.read(in);
+            pacients.addElement(pacient);
+            pacient=(Pacient)pacients.elementAt(i);
+            pacient.print();
+
+            Doc doc=new Doc();
+            doc.read(in);
+            doctors.addElement(doc);
+            doc=(Doc)doctors.elementAt(i);
+            doc.print();
+        }*/
     }
 
 }
