@@ -6,30 +6,29 @@ import java.util.*;
 
 class Doc{
     private String name;
+    private String surname;
     private String date;
     private boolean sex;
     private int salary;
-    private int id;
+    public int id;
 
     public Doc(){
     }
 
     public Doc(String name,
+               String surname,
                String date,
                boolean sex,
                int salary){
         this.name=name;
+        this.surname=surname;
         this.date=date;
         this.sex=sex;
         this.salary=salary;
     }
-
-    public void set_id(int i){
-        this.id=i;
-    }
-
     public void read(Scanner in){
         this.name=in.next();
+        this.surname=in.next();
         this.date=in.next();
         if (in.next().equalsIgnoreCase("male")){
             this.sex=true;
@@ -39,9 +38,9 @@ class Doc{
 
     public void print(){
         if (this.sex){
-            System.out.println(name+" "+date+" male "+" "+salary+" "+id);
+            System.out.println(name+" "+surname+" "+date+" male "+" "+salary+" "+id);
         } else{
-            System.out.println(name+" "+date+" female "+" "+salary+" "+id);
+            System.out.println(name+" "+surname+" "+date+" female "+" "+salary+" "+id);
         }
     }
 
@@ -49,32 +48,33 @@ class Doc{
 
 class Pacient {
     private String name;
+    private String surname;
     private String date;
     private boolean sex;    //in case male sex=true, else sex=false ^^
     private int weight;
-    private int id;
+    public int id;
+    public int doc_id;
 
     public Pacient(){
-
+        this.doc_id=-1;
     }
 
     public Pacient(String name,
+                   String surname,
                    String date,
                    boolean sex,
-                   int weight,
-                   int id){
+                   int weight){
         this.name=name;
+        this.surname=surname;
         this.date=date;
         this.sex=sex;
         this.weight=weight;;
     }
 
-    public void set_id(int i){
-        this.id=i;
-    }
 
     public void read(Scanner in){
         this.name=in.next();
+        this.surname=in.next();
         this.date=in.next();
         if (in.next().equalsIgnoreCase("male")){
             this.sex=true;
@@ -84,11 +84,26 @@ class Pacient {
 
     public void print(){
         if (this.sex){
-            System.out.println(name+" "+date+" male "+" "+weight+" "+id);
+            System.out.println(name+" "+surname+" "+date+" male "+" "+weight+" "+id+" "+doc_id);
         } else{
-            System.out.println(name+" "+date+" female "+" "+weight+" "+id);
+            System.out.println(name+" "+surname+" "+date+" female "+" "+weight+" "+id+" "+doc_id);
         }
     }
+}
+
+class ID{
+    private int doc;
+    private int pacient;
+
+    public ID(){
+
+    }
+
+    public ID(int i,int j){
+        this.doc=i;
+        this.pacient=j;
+    }
+
 }
 
 
@@ -99,6 +114,7 @@ public class MyDBMS {
         Scanner in = new Scanner(System.in);
         Vector pacients=new Vector();
         Vector doctors=new Vector();
+        Vector ids=new Vector();
         String s=in.next();
         int i=0;
         int j=0;
@@ -113,7 +129,10 @@ public class MyDBMS {
                 if (s.equalsIgnoreCase("patient")){
                     Pacient pacient=new Pacient();
                     pacient.read(in);
-                    pacient.set_id(i);
+                    pacient.doc_id=in.nextInt();
+                    pacient.id=i;
+                    ID id=new ID(pacient.doc_id,pacient.id);
+                    ids.addElement(id);
                     pacients.addElement(pacient);
                     pacient=(Pacient)pacients.elementAt(i);
                     pacient.print();
@@ -121,7 +140,7 @@ public class MyDBMS {
                 } else if (s.equalsIgnoreCase("doctor")){
                     Doc doc=new Doc();
                     doc.read(in);
-                    doc.set_id(j);
+                    doc.id=j;
                     doctors.addElement(doc);
                     doc=(Doc)doctors.elementAt(j);
                     doc.print();
@@ -129,14 +148,16 @@ public class MyDBMS {
                 } else {
                     Pacient pacient=new Pacient();
                     pacient.read(in);
-                    pacient.set_id(i);
+                    pacient.doc_id=j;
+                    pacient.id=i;
+                    ID id=new ID(pacient.doc_id,pacient.id);
                     pacients.addElement(pacient);
                     pacient=(Pacient)pacients.elementAt(i);
                     pacient.print();
                     i++;
                     Doc doc=new Doc();
                     doc.read(in);
-                    doc.set_id(j);
+                    doc.id=j;
                     doctors.addElement(doc);
                     doc=(Doc)doctors.elementAt(j);
                     doc.print();
@@ -146,21 +167,6 @@ public class MyDBMS {
             }
             s=in.next();
         }
-
-        /*for (int i=0;i<3;i++){
-
-            Pacient pacient=new Pacient();
-            pacient.read(in);
-            pacients.addElement(pacient);
-            pacient=(Pacient)pacients.elementAt(i);
-            pacient.print();
-
-            Doc doc=new Doc();
-            doc.read(in);
-            doctors.addElement(doc);
-            doc=(Doc)doctors.elementAt(i);
-            doc.print();
-        }*/
     }
 
 }
