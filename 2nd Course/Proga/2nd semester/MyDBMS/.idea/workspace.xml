@@ -17,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="MyDBMS.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+        <entry file="file://$PROJECT_DIR$/MyDBMS/src/MyDBMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="-780">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -29,7 +29,7 @@
         </entry>
       </file>
       <file leaf-file-name="MyDBMS.class" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/production/MyDBMS/MyDBMS.class">
+        <entry file="file://$PROJECT_DIR$/MyDBMS/out/production/MyDBMS/MyDBMS.class">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
@@ -104,6 +104,10 @@
               <option name="myItemId" value="2nd semester" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MyDBMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -113,6 +117,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Project\Home_Works\2nd Course\Proga\2nd semester\MyDBMS" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -487,7 +496,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+    <entry file="file://$PROJECT_DIR$/MyDBMS/src/MyDBMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -497,7 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/MyDBMS/MyDBMS.class">
+    <entry file="file://$PROJECT_DIR$/MyDBMS/out/production/MyDBMS/MyDBMS.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
@@ -513,7 +522,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/MyDBMS/MyDBMS.class">
+    <entry file="file://$PROJECT_DIR$/MyDBMS/out/production/MyDBMS/MyDBMS.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
@@ -571,10 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+    <entry file="file://$PROJECT_DIR$/MyDBMS/src/MyDBMS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="-780">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
