@@ -6,7 +6,6 @@ using namespace std;
 double f(double x) {                      //Original function
 	if ((2 * x + 3) == 0) {
 		cout << "Dividing by zero" << endl;
-		exit(EXIT_FAILURE);
 	}
 	return(63*x*x*x*x*x-70*x*x*x+15*x-8/(2*x+3));
 }
@@ -14,7 +13,6 @@ double f(double x) {                      //Original function
 double f1(double x) {                     //Derivative of function
 	if ((2 * x + 3) == 0) {
 		cout << "Dividing by zero" << endl;
-		exit(EXIT_FAILURE);
 	}
 	return(315 * x*x*x*x - 210 * x*x + 15 + 16 / ((2 * x + 3)*(2*x+3)));
 }
@@ -77,6 +75,6 @@ int main() {
 	root(a2, b2, 2);
 	root(a3, b3, 3);
 	root(a4, b4, 4);
-	return EXIT_SUCCESS;
+	return 0;
 }
 
