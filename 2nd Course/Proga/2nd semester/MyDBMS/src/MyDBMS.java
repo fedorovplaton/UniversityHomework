@@ -2,10 +2,7 @@
  * MyDBMS has been created by moldybizkit on 09.03.2018.
  */
 
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.*;
 import java.io.*;
 import java.nio.*;
@@ -75,13 +72,13 @@ class Doc {
     public void printf(File file) {
         String text;
         if (this.sex) {
-            text=(name + " " + surname + " " + date + " male " + " " + salary + " " + id+"\n");
+            text = (name + " " + surname + " " + date + " male " + " " + salary + " " + id +"\n");
         } else {
-            text=(name + " " + surname + " " + date + " female " + " " + salary + " " + id+"\n");
+            text = (name + " " + surname + " " + date + " female " + " " + salary + " " + id +"\n");
         }
-        String filePath=file.getAbsolutePath();
+        String filePath = file.getAbsolutePath();
         try {
-            Files.write(Paths.get(filePath),text.getBytes(),StandardOpenOption.APPEND);
+            Files.write(Paths.get(filePath), text.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.out.println("Can't print doc in file");
         }
@@ -157,11 +154,11 @@ class Patient {
     public void printf(File file) {
         String text;
         if (this.sex) {
-            text=name + " " + surname + " " + date + " male " + " " + weight + " " + id + " " + doc_id+"\n";
+            text = name + " " + surname + " " + date + " male " + " " + weight + " " + id + " " + doc_id+"\n"  ;
         } else {
-            text=name + " " + surname + " " + date + " female " + " " + weight + " " + id + " " + doc_id+"\n";
+            text =name + " " + surname + " " + date + " female " + " " + weight + " " + id + " " + doc_id+"\n" ;
         }
-        String filePath=file.getAbsolutePath();
+        String filePath = file.getAbsolutePath();
         try {
             Files.write(Paths.get(filePath), text.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
@@ -189,10 +186,10 @@ class ID {
     }
 
     public void printf(File file) {
-        String text=doc+" "+patient+"\n";
-        String filePath= file.getAbsolutePath();
+        String text =doc + " " + patient+"\n" ;
+        String filePath = file.getAbsolutePath();
         try {
-            Files.write(Paths.get(filePath),text.getBytes(),StandardOpenOption.APPEND);
+            Files.write(Paths.get(filePath), text.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.out.println("Can't print id in file");
         }
@@ -229,16 +226,17 @@ public class MyDBMS {
         int j = 0;
         while (!s.equalsIgnoreCase("quit")) {
             if (s.equalsIgnoreCase("create")) {                 //Creating a database or a table
+                System.out.println("Enter a type of creating object(database/table)");
                 s = in.next();
                 if (s.equalsIgnoreCase("database")) {           //Creating a database with or without table
                     System.out.println("Enter the name of the new database");
                     s = in.next();
                     File database = new File("C:\\DATABASES\\" + s);
                     if (database.exists()) {
-                        System.out.println("Database is already exists");
+                        System.out.println("Database already exists");
                     } else if (database.mkdirs()) {
-                        System.out.println("Databases" + s + " created successfully");
-                        File id = new File("C:\\DATABASES\\" + database.getName() + "ID.txt");
+                        System.out.println("Database " + s + " created successfully");
+                        File id = new File("C:\\DATABASES\\" + database.getName() +File.separator +"ID.txt");
                         try {
                             id.createNewFile();
                         } catch (IOException ex) {
@@ -253,7 +251,7 @@ public class MyDBMS {
                         s = in.next();
                         File table = new File("C:\\DATABASES\\" + database.getName() + File.separator + s + ".txt");
                         if (table.exists()) {
-                            System.out.println("Table is already exist");
+                            System.out.println("Table already exists");
                         } else {
                             try {
                                 table.createNewFile();
@@ -271,7 +269,7 @@ public class MyDBMS {
                     file = in.next();
                     File table = new File("C:\\DATABASES\\" + s + File.separator + file + ".txt");
                     if (table.exists()) {
-                        System.out.println("Table is already exist");
+                        System.out.println("Table already exists");
                     } else {
                         try {
                             table.createNewFile();
@@ -308,13 +306,13 @@ public class MyDBMS {
                                     Patient patient = new Patient();
                                     patient.file_read(sc1);
                                     patients.addElement(patient);
-                                    i = patient.id;
+                                    i=patient.id;
                                 }
                                 while (sc2.hasNext()) {
                                     Doc doc = new Doc();
                                     doc.file_read(sc2);
                                     doctors.addElement(doc);
-                                    j = doc.id;
+                                    j=doc.id;
                                 }
                                 while (sc3.hasNext()) {
                                     ID id = new ID();
@@ -339,7 +337,6 @@ public class MyDBMS {
                                             ID id = new ID(patient.doc_id, patient.id);
                                             id.printf(Id);
                                             ids.addElement(id);
-                                            patient = (Patient) patients.elementAt(i - 1);
                                             patient.println();
                                         } else if (s.equalsIgnoreCase("doctors")) {
                                             j++;
@@ -348,9 +345,8 @@ public class MyDBMS {
                                             doc.id = j;
                                             doctors.addElement(doc);
                                             doc.printf(table2);
-                                            doc = (Doc) doctors.elementAt(j - 1);
                                             doc.println();
-                                        } else {
+                                        } else if (s.equalsIgnoreCase("no")){
                                             j++;
                                             i++;
                                             Patient patient = new Patient();
@@ -362,14 +358,12 @@ public class MyDBMS {
                                             id.printf(Id);
                                             ids.addElement(id);
                                             patients.addElement(patient);
-                                            patient = (Patient) patients.elementAt(i - 1);
                                             Doc doc = new Doc();
                                             doc.read(in);
                                             doc.id = j;
                                             doc.printf(table2);
                                             doctors.addElement(doc);
-                                            doc = (Doc) doctors.elementAt(j - 1);
-                                            patient.println();
+                                            patient.print();
                                             doc.println();
                                         }
                                         s = in.next();
@@ -395,7 +389,7 @@ public class MyDBMS {
                                                 ch = in.next();
                                                 Patient patient;
                                                 cond = in.next();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if ((patient.name.equals(cond)) && (ch.equals("="))) {
                                                         m = 0;
@@ -422,7 +416,7 @@ public class MyDBMS {
                                                 ch = in.next();
                                                 Patient patient;
                                                 cond = in.next();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if ((patient.surname.equals(cond)) && (ch.equals("="))) {
                                                         m = 0;
@@ -448,7 +442,7 @@ public class MyDBMS {
                                                 System.out.println("Enter a condition(male/female)");
                                                 Patient patient;
                                                 cond = in.next();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if ((patient.sex) && (cond.equals("male"))) {
                                                         m = 0;
@@ -477,7 +471,7 @@ public class MyDBMS {
                                                 ch = in.next();
                                                 Patient patient;
                                                 intcond = in.nextInt();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if ((patient.weight == intcond) && (ch.equals("="))) {
                                                         m = 0;
@@ -521,7 +515,7 @@ public class MyDBMS {
                                                 System.out.println("Enter a condition(Id number)");
                                                 Patient patient;
                                                 intcond = in.nextInt();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if (patient.id == intcond) {
                                                         m = 0;
@@ -538,7 +532,7 @@ public class MyDBMS {
                                                 System.out.println("Enter a condition(Id number)");
                                                 Patient patient;
                                                 intcond = in.nextInt();
-                                                for (int k = 0; k <= i; k++) {
+                                                for (int k = 0; k < patients.size(); k++) {
                                                     patient = (Patient) patients.elementAt(k);
                                                     if (patient.doc_id == intcond) {
                                                         m = 0;
@@ -555,259 +549,944 @@ public class MyDBMS {
                                                 System.out.println("Incorrect query");
                                             }
                                         } else if (act.equalsIgnoreCase("delete")) {
-                                            String p = table1.getAbsolutePath();
-                                            String p1 = Id.getAbsolutePath();
-                                                File table11 = new File(p);
-                                                File Id1 = new File(p1);
-                                                System.out.println("Enter a column");
-                                                s = in.next();
-                                                if (s.equalsIgnoreCase("name")) {
-                                                    System.out.println("Enter a condition(=/!=)");
-                                                    ch = in.next();
-                                                    Patient patient;
-                                                    cond = in.next();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if ((patient.name.equals(cond)) && (ch.equals("="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((!patient.name.equals(cond)) && (ch.equals("!="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
+                                            try {
+                                                PrintWriter pw = new PrintWriter(table1);
+                                                pw.print("");
+                                                pw.close();
+                                            } catch (FileNotFoundException e) {
+                                                System.out.println("Some problems");
+                                            }
+                                            try {
+                                                PrintWriter pw = new PrintWriter(Id);
+                                                pw.print("");
+                                                pw.close();
+                                            } catch (FileNotFoundException e) {
+                                                System.out.println("Some problems");
+                                            }
+                                            System.out.println("Enter a column");
+                                            s = in.next();
+                                            if (s.equalsIgnoreCase("name")) {
+                                                System.out.println("Enter a condition(=/!=)");
+                                                ch = in.next();
+                                                Patient patient;
+                                                cond = in.next();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if ((patient.name.equals(cond)) && (ch.equals("="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
                                                         }
-                                                    }
-                                                } else if (s.equalsIgnoreCase("surname")) {
-                                                    System.out.println("Enter a condition(=/!=)");
-                                                    ch = in.next();
-                                                    Patient patient;
-                                                    cond = in.next();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if ((patient.surname.equals(cond)) && (ch.equals("="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((!patient.surname.equals(cond)) && (ch.equals("!="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
                                                         }
-                                                    }
-                                                } else if (s.equalsIgnoreCase("sex")) {
-                                                    System.out.println("Enter a condition(male/female)");
-                                                    Patient patient;
-                                                    cond = in.next();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if ((patient.sex) && (cond.equals("male"))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((!patient.sex) && (cond.equals("female"))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((!patient.name.equals(cond)) && (ch.equals("!="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
                                                         }
-                                                    }
-                                                } else if (s.equalsIgnoreCase("date")) {
-                                                    System.out.println("Do it by yourself!");
-                                                } else if (s.equalsIgnoreCase("weight")) {
-                                                    System.out.println("Enter a condition(=/!=/>/<)");
-                                                    ch = in.next();
-                                                    Patient patient;
-                                                    intcond = in.nextInt();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if ((patient.weight == intcond) && (ch.equals("="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((patient.weight != intcond) && (ch.equals("!="))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((patient.weight > intcond) && (ch.equals(">"))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else if ((patient.weight < intcond) && (ch.equals("<"))) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
                                                         }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
                                                     }
-                                                } else if (s.equalsIgnoreCase("id")) {
-                                                    System.out.println("Enter a condition(Id number)");
-                                                    Patient patient;
-                                                    intcond = in.nextInt();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if (patient.id == intcond) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
-                                                        }
-                                                    }
-                                                } else if (s.equalsIgnoreCase("doc_id")) {
-                                                    System.out.println("Enter a condition(Id number)");
-                                                    Patient patient;
-                                                    intcond = in.nextInt();
-                                                    for (int k = 0; k <= i; k++) {
-                                                        patient = (Patient) patients.elementAt(k);
-                                                        if (patient.doc_id == intcond) {
-                                                            m = 0;
-                                                            ID id = (ID) ids.elementAt(m);
-                                                            while (patient.id != id.patient) {
-                                                                id.printf(Id1);
-                                                                m++;
-                                                                id = (ID) ids.elementAt(m);
-                                                            }
-                                                            patient.print();
-                                                            patients.removeElementAt(k);
-                                                            ids.removeElementAt(m);
-                                                            i--;
-                                                        } else {
-                                                            patient.printf(table11);
-                                                        }
-                                                    }
-                                                } else {
-                                                    System.out.println("Incorrect query");
                                                 }
-
+                                            } else if (s.equalsIgnoreCase("surname")) {
+                                                System.out.println("Enter a condition(=/!=)");
+                                                ch = in.next();
+                                                Patient patient;
+                                                cond = in.next();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if ((patient.surname.equals(cond)) && (ch.equals("="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((!patient.surname.equals(cond)) && (ch.equals("!="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("sex")) {
+                                                System.out.println("Enter a condition(male/female)");
+                                                Patient patient;
+                                                cond = in.next();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if ((patient.sex) && (cond.equals("male"))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((!patient.sex) && (cond.equals("female"))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("date")) {
+                                                System.out.println("Do it by yourself!");
+                                                for (int o = 0; o < patients.size(); o++) {
+                                                    Patient patient = (Patient) patients.elementAt(o);
+                                                    patient.printf(table1);
+                                                }
+                                                for (int o = 0; o < ids.size(); o++) {
+                                                    ID id = (ID) ids.elementAt(o);
+                                                    id.printf(Id);
+                                                }
+                                            } else if (s.equalsIgnoreCase("weight")) {
+                                                System.out.println("Enter a condition(=/!=/>/<)");
+                                                ch = in.next();
+                                                Patient patient;
+                                                intcond = in.nextInt();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if ((patient.weight == intcond) && (ch.equals("="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((patient.weight != intcond) && (ch.equals("!="))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((patient.weight > intcond) && (ch.equals(">"))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else if ((patient.weight < intcond) && (ch.equals("<"))) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("id")) {
+                                                System.out.println("Enter a condition(Id number)");
+                                                Patient patient;
+                                                intcond = in.nextInt();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if (patient.id == intcond) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("doc_id")) {
+                                                System.out.println("Enter a condition(Id number)");
+                                                Patient patient;
+                                                intcond = in.nextInt();
+                                                for (int k = 0; k < patients.size(); k++) {
+                                                    patient = (Patient) patients.elementAt(k);
+                                                    if (patient.doc_id == intcond) {
+                                                        m = 0;
+                                                        ID id = (ID) ids.elementAt(m);
+                                                        while (patient.id != id.patient) {
+                                                            id.printf(Id);
+                                                            m++;
+                                                            id = (ID) ids.elementAt(m);
+                                                        }
+                                                        patient.print();
+                                                        m = 0;
+                                                        Doc doc = (Doc) doctors.elementAt(m);
+                                                        while (patient.doc_id != doc.id) {
+                                                            m++;
+                                                            doc = (Doc) doctors.elementAt(m);
+                                                        }
+                                                        doc.println();
+                                                        patients.removeElementAt(k);
+                                                        k--;
+                                                        ids.removeElementAt(m);
+                                                    } else {
+                                                        patient.printf(table1);
+                                                    }
+                                                }
+                                            } else {
+                                                System.out.println("Incorrect query");
+                                                for (int o = 0; o < patients.size(); o++) {
+                                                    Patient patient = (Patient) patients.elementAt(o);
+                                                    patient.printf(table1);
+                                                }
+                                                for (int o = 0; o < ids.size(); o++) {
+                                                    ID id = (ID) ids.elementAt(o);
+                                                    id.printf(Id);
+                                                }
+                                            }
+                                        } else {
+                                            System.out.println("Incorrect query");
                                         }
 
                                     } else if (s.equalsIgnoreCase("doctors")) {
                                         System.out.println("Enter an action(print/delete)");
-                                        act=in.next();
-                                        if (act.equalsIgnoreCase("print")){
+                                        act = in.next();
+                                        if (act.equalsIgnoreCase("print")) {
                                             System.out.println("Enter a column");
-                                            s=in.next();
-                                            if(s.equalsIgnoreCase("name")){
+                                            s = in.next();
+                                            if (s.equalsIgnoreCase("name")) {
                                                 System.out.println("Enter a condition(=/!=)");
-                                                ch=in.next();
-                                                cond=in.next();
+                                                ch = in.next();
+                                                cond = in.next();
                                                 Doc doc;
-                                                for (int k=0;k<=j;k++){
-                                                    doc=(Doc) doctors.elementAt(k);
-                                                    if (doc.name.equals(cond)&&ch.equals("=")){
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.name.equals(cond) && ch.equals("=")) {
                                                         ID id;
-                                                        for (int p=0;p<ids.size();p++){
-                                                            id=(ID)ids.elementAt(p);
-                                                            if (doc.id==id.doc){
-                                                                Patient pacient;
-                                                                int o=0;
-                                                                pacient=(Patient)patients.elementAt(o);
-                                                                while ((id.patient!=pacient.id)){
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
                                                                     o++;
-                                                                    pacient=(Patient)patients.elementAt(o);
+                                                                    patient = (Patient) patients.elementAt(o);
                                                                 }
                                                                 doc.print();
-                                                                pacient.println();
+                                                                patient.println();
                                                             }
                                                         }
-                                                    }//else if (!)
+                                                    } else if ((!doc.name.equals(cond)) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("surname")) {
+                                                System.out.println("Enter a condition(=/!=)");
+                                                ch = in.next();
+                                                cond = in.next();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.surname.equals(cond) && ch.equals("=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    } else if ((!doc.surname.equals(cond)) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("date")) {
+                                                System.out.println("Do it by yourself!");
+                                            } else if (s.equalsIgnoreCase("sex")) {
+                                                System.out.println("Enter a condition(male/female)");
+                                                ch = in.next();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.sex && ch.equals("male")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    } else if ((!doc.sex) && ch.equals("female")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("salary")) {
+                                                System.out.println("Enter a condition(=/!=/>/<)");
+                                                ch = in.next();
+                                                intcond = in.nextInt();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if ((doc.salary == intcond) && ch.equals("=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    } else if ((doc.salary != intcond) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    } else if ((doc.salary > intcond) && ch.equals(">")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    } else if ((doc.salary < intcond) && ch.equals("<")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else if (s.equalsIgnoreCase("id")) {
+                                                System.out.println("Enter a condition(Id number)");
+                                                intcond = in.nextInt();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if ((doc.id == intcond)) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                System.out.println("Incorrect query");
+                                            }
+                                        } else if (act.equalsIgnoreCase("delete")) {
+
+                                            try {
+                                                PrintWriter pw = new PrintWriter(table1);
+                                                pw.print("");
+                                                pw.close();
+                                            } catch (FileNotFoundException e) {
+                                                System.out.println("Some problems");
+                                            }
+                                            try {
+                                                PrintWriter pw = new PrintWriter(table2);
+                                                pw.print("");
+                                                pw.close();
+                                            } catch (FileNotFoundException e) {
+                                                System.out.println("Some problem");
+                                            }
+                                            try {
+                                                PrintWriter pw = new PrintWriter(Id);
+                                                pw.print("");
+                                                pw.close();
+                                            } catch (FileNotFoundException e) {
+                                                System.out.println("Some problems");
+                                            }
+                                            System.out.println("Enter a column");
+                                            s = in.next();
+                                            if (s.equalsIgnoreCase("name")) {
+                                                System.out.println("Enter a condition(=/!=)");
+                                                ch = in.next();
+                                                cond = in.next();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.name.equals(cond) && ch.equals("=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else if ((!doc.name.equals(cond)) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else {
+                                                        doc.printf(table2);
+                                                    }
+                                                }
+                                            }else if (s.equalsIgnoreCase("surname")){
+                                                System.out.println("Enter a condition(=/!=)");
+                                                ch = in.next();
+                                                cond = in.next();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.surname.equals(cond) && ch.equals("=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else if ((!doc.surname.equals(cond)) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else {
+                                                        doc.printf(table2);
+                                                    }
+                                                }
+                                            }else if(s.equalsIgnoreCase("date")){
+                                                System.out.println("Do it by yourself!");
+
+                                                for (int o = 0; o < patients.size(); o++) {
+                                                    Patient patient = (Patient) patients.elementAt(o);
+                                                    patient.printf(table1);
+                                                }
+                                                for (int o = 0; o < doctors.size(); o++) {
+                                                    Doc doc = (Doc) doctors.elementAt(o);
+                                                    doc.printf(table2);
+                                                }
+                                                for (int o = 0; o < ids.size(); o++) {
+                                                    ID id = (ID) ids.elementAt(o);
+                                                    id.printf(Id);
+                                                }
+                                            }else if(s.equalsIgnoreCase("sex")){
+                                                System.out.println("Enter a condition(male/female)");
+                                                cond = in.next();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.sex && cond.equals("male")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else if ((!doc.sex) && cond.equals("female")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else {
+                                                        doc.printf(table2);
+                                                    }
+                                                }
+                                            }else if (s.equalsIgnoreCase("salary")){
+                                                System.out.println("Enter a condition(=/!=/>/<)");
+                                                ch = in.next();
+                                                intcond = in.nextInt();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if ((doc.salary==intcond) && ch.equals("=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else if ((doc.salary!=intcond) && ch.equals("!=")) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    }else if ((doc.salary>intcond)&&ch.equals(">")){
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    }else if ((doc.salary<intcond)&&ch.equals("<")){
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+                                                    } else {
+                                                        doc.printf(table2);
+                                                    }
+                                                }
+                                            }else if (s.equalsIgnoreCase("id")){
+                                                System.out.println("Enter a condition(Id number)");
+                                                intcond = in.nextInt();
+                                                Doc doc;
+                                                for (int k = 0; k < doctors.size(); k++) {
+                                                    doc = (Doc) doctors.elementAt(k);
+                                                    if (doc.id==intcond) {
+                                                        ID id;
+                                                        for (int p = 0; p < ids.size(); p++) {
+                                                            id = (ID) ids.elementAt(p);
+                                                            if (doc.id == id.doc) {
+                                                                Patient patient;
+                                                                int o = 0;
+                                                                patient = (Patient) patients.elementAt(o);
+                                                                while ((id.patient != patient.id)) {
+                                                                    patient.printf(table1);
+                                                                    o++;
+                                                                    patient = (Patient) patients.elementAt(o);
+                                                                }
+                                                                doc.print();
+                                                                patient.println();
+                                                                patients.removeElementAt(o);
+                                                                ids.removeElementAt(p);
+                                                                p--;
+                                                            } else {
+                                                                id.printf(Id);
+                                                            }
+                                                        }
+                                                        doctors.removeElementAt(k);
+                                                        k--;
+
+                                                    } else {
+                                                        doc.printf(table2);
+                                                    }
+                                                }
+                                            }else {
+                                                System.out.println("Incorrect query");
+                                                for (int o = 0; o < patients.size(); o++) {
+                                                    Patient patient = (Patient) patients.elementAt(o);
+                                                    patient.printf(table1);
+                                                }
+                                                for (int o = 0; o < doctors.size(); o++) {
+                                                    Doc doc = (Doc) doctors.elementAt(o);
+                                                    doc.printf(table2);
+                                                }
+                                                for (int o = 0; o < ids.size(); o++) {
+                                                    ID id = (ID) ids.elementAt(o);
+                                                    id.printf(Id);
                                                 }
                                             }
+
+                                        } else {
+                                            System.out.println("Incorrect query");
                                         }
 
                                     } else {
@@ -816,22 +1495,56 @@ public class MyDBMS {
                                 }
                             } catch (FileNotFoundException e3) {
                                 System.out.println("Can't find ids");
-                                s = in.next();
                             }
                         } catch (FileNotFoundException e2) {
                             System.out.println("Table " + table2.getName() + " does not exist");
-                            s = in.next();
                         }
 
                     } catch (FileNotFoundException e1) {
                         System.out.println("Table " + table1.getName() + " does not exist");
-                        s = in.next();
+                    }
+                }
+                s = in.next();
+            }
+            if (s.equalsIgnoreCase("delete")) {             //Deleting a database or a table
+                System.out.println("Enter a type of deleting object(database/table)");
+                s = in.next();
+                if (s.equalsIgnoreCase("database")) {           //Deleting a database
+                    System.out.println("Enter the name of the database");
+                    s = in.next();
+                    File database = new File("C:\\DATABASES\\" + s);
+                    if (!database.exists()) {
+                        System.out.println("Database doesn't exists");
+                    } else {
+                        for (File file1 : new File("C:\\DATABASES\\" + s).listFiles())
+                            if (file1.isFile()) file1.delete();
+                        database.delete();
+                        System.out.println("Database " + s + " deleted successfully");
+                    }
+                } else if (s.equalsIgnoreCase("table")) {      //Deleting only a table
+                    System.out.println("Enter the name of the database, where you want to delete a table");
+                    s = in.next();
+                    System.out.println("Enter the name of the table");
+                    file = in.next();
+                    File table = new File("C:\\DATABASES\\" + s + File.separator + file + ".txt");
+                    if (!table.exists()) {
+                        System.out.println("Table doesn't exist");
+                    } else {
+                        try {
+                            table.delete();
+                            System.out.println("Table " + file + " deleted successfully");
+                        } catch (SecurityException e) {
+                            System.out.println("Unexpected error, please enter 'quit'");
+                        }
                     }
                 }
             }
-            s=in.next();
+            patients.removeAllElements();
+            doctors.removeAllElements();
+            ids.removeAllElements();
+            s = in.next();
             if (s.equalsIgnoreCase("quit")) {
-                System.out.println("I was glad to work with you, goodbye!");
+                System.out.println("I was pleased to work with you, goodbye!");
             }
         }
     }
