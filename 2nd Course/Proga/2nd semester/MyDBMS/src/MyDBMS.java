@@ -1152,7 +1152,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1161,8 +1160,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1176,7 +1173,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1185,8 +1181,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1194,6 +1188,14 @@ public class MyDBMS {
                                                     } else {
                                                         doc.printf(table2);
                                                     }
+                                                }
+                                                Patient patient;
+                                                ID id;
+                                                for (int y=0;y<patients.size();y++){
+                                                    patient=(Patient)patients.elementAt(y);
+                                                    patient.printf(table1);
+                                                    id=(ID)ids.elementAt(y);
+                                                    id.printf(Id);
                                                 }
                                             }else if (s.equalsIgnoreCase("surname")){
                                                 System.out.println("Enter a condition(=/!=)");
@@ -1211,7 +1213,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1220,8 +1221,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1235,7 +1234,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1244,8 +1242,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1253,6 +1249,14 @@ public class MyDBMS {
                                                     } else {
                                                         doc.printf(table2);
                                                     }
+                                                }
+                                                Patient patient;
+                                                ID id;
+                                                for (int y=0;y<patients.size();y++){
+                                                    patient=(Patient)patients.elementAt(y);
+                                                    patient.printf(table1);
+                                                    id=(ID)ids.elementAt(y);
+                                                    id.printf(Id);
                                                 }
                                             }else if(s.equalsIgnoreCase("date")){
                                                 System.out.println("Do it by yourself!");
@@ -1284,7 +1288,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1293,8 +1296,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1308,7 +1309,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1317,8 +1317,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1326,6 +1324,14 @@ public class MyDBMS {
                                                     } else {
                                                         doc.printf(table2);
                                                     }
+                                                }
+                                                Patient patient;
+                                                ID id;
+                                                for (int y=0;y<patients.size();y++){
+                                                    patient=(Patient)patients.elementAt(y);
+                                                    patient.printf(table1);
+                                                    id=(ID)ids.elementAt(y);
+                                                    id.printf(Id);
                                                 }
                                             }else if (s.equalsIgnoreCase("salary")){
                                                 System.out.println("Enter a condition(=/!=/>/<)");
@@ -1343,7 +1349,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1352,8 +1357,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1367,7 +1370,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1376,8 +1378,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1391,7 +1391,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1400,8 +1399,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1415,7 +1412,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1424,8 +1420,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1433,6 +1427,14 @@ public class MyDBMS {
                                                     } else {
                                                         doc.printf(table2);
                                                     }
+                                                }
+                                                Patient patient;
+                                                ID id;
+                                                for (int y=0;y<patients.size();y++){
+                                                    patient=(Patient)patients.elementAt(y);
+                                                    patient.printf(table1);
+                                                    id=(ID)ids.elementAt(y);
+                                                    id.printf(Id);
                                                 }
                                             }else if (s.equalsIgnoreCase("id")){
                                                 System.out.println("Enter a condition(Id number)");
@@ -1449,7 +1451,6 @@ public class MyDBMS {
                                                                 int o = 0;
                                                                 patient = (Patient) patients.elementAt(o);
                                                                 while ((id.patient != patient.id)) {
-                                                                    patient.printf(table1);
                                                                     o++;
                                                                     patient = (Patient) patients.elementAt(o);
                                                                 }
@@ -1458,8 +1459,6 @@ public class MyDBMS {
                                                                 patients.removeElementAt(o);
                                                                 ids.removeElementAt(p);
                                                                 p--;
-                                                            } else {
-                                                                id.printf(Id);
                                                             }
                                                         }
                                                         doctors.removeElementAt(k);
@@ -1468,6 +1467,14 @@ public class MyDBMS {
                                                     } else {
                                                         doc.printf(table2);
                                                     }
+                                                }
+                                                Patient patient;
+                                                ID id;
+                                                for (int y=0;y<patients.size();y++){
+                                                    patient=(Patient)patients.elementAt(y);
+                                                    patient.printf(table1);
+                                                    id=(ID)ids.elementAt(y);
+                                                    id.printf(Id);
                                                 }
                                             }else {
                                                 System.out.println("Incorrect query");

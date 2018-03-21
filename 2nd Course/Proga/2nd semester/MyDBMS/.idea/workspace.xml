@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1014e1bd-08cb-4699-97d2-70d3cdd50223" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/Reverse interpolation/Reverse interpolation/Reverse interpolation.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/Reverse interpolation/Reverse interpolation/Reverse interpolation.vcxproj" />
+      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The Newton-Gauss interpolation/The Newton-Gauss interpolation/The Newton-Gauss interpolation.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The Newton-Gauss interpolation/The Newton-Gauss interpolation/The Newton-Gauss interpolation.vcxproj" />
+      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The scheme of Aitken/The scheme of Aitken/The scheme of Aitken.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The scheme of Aitken/The scheme of Aitken/The scheme of Aitken.vcxproj" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyDBMS/Doc.class" afterPath="$PROJECT_DIR$/out/production/MyDBMS/Doc.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyDBMS/ID.class" afterPath="$PROJECT_DIR$/out/production/MyDBMS/ID.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/MyDBMS/Patient.class" afterPath="$PROJECT_DIR$/out/production/MyDBMS/Patient.class" />
       <change beforePath="$PROJECT_DIR$/src/MyDBMS.java" afterPath="$PROJECT_DIR$/src/MyDBMS.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,13 +24,12 @@
       <file leaf-file-name="MyDBMS.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="88" column="15" lean-forward="true" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+            <state relative-caret-position="-29">
+              <caret line="1477" column="49" lean-forward="false" selection-start-line="1477" selection-start-column="49" selection-end-line="1477" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-                <element signature="method#Doc#1;class#Doc#0" expanded="false" />
                 <element signature="method#file_read#0;class#Doc#0" expanded="false" />
                 <element signature="method#print#0;class#Doc#0" expanded="false" />
                 <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -83,8 +89,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,8 +100,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,7 +356,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -358,10 +363,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718232" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718232" sideWeight="0.1671875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718232" sideWeight="0.8328125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718232" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -370,8 +375,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -387,7 +392,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -404,7 +409,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -426,7 +430,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -448,7 +451,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -470,7 +472,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -492,7 +493,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -514,7 +514,6 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -536,7 +535,69 @@
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
+            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
+            <element signature="method#print#0;class#Doc#0" expanded="false" />
+            <element signature="method#println#0;class#Doc#0" expanded="false" />
+            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
+            <element signature="method#read#0;class#Patient#0" expanded="false" />
+            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
+            <element signature="method#print#0;class#Patient#0" expanded="false" />
+            <element signature="method#println#0;class#Patient#0" expanded="false" />
+            <element signature="method#ID#0;class#ID#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
+            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
+            <element signature="method#print#0;class#Doc#0" expanded="false" />
+            <element signature="method#println#0;class#Doc#0" expanded="false" />
+            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
+            <element signature="method#read#0;class#Patient#0" expanded="false" />
+            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
+            <element signature="method#print#0;class#Patient#0" expanded="false" />
+            <element signature="method#println#0;class#Patient#0" expanded="false" />
+            <element signature="method#ID#0;class#ID#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
+            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
+            <element signature="method#print#0;class#Doc#0" expanded="false" />
+            <element signature="method#println#0;class#Doc#0" expanded="false" />
+            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
+            <element signature="method#read#0;class#Patient#0" expanded="false" />
+            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
+            <element signature="method#print#0;class#Patient#0" expanded="false" />
+            <element signature="method#println#0;class#Patient#0" expanded="false" />
+            <element signature="method#ID#0;class#ID#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
@@ -554,19 +615,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="2160" column="0" lean-forward="false" selection-start-line="2160" selection-start-column="0" selection-end-line="2160" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="88" column="15" lean-forward="true" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+        <state relative-caret-position="-29">
+          <caret line="1477" column="49" lean-forward="false" selection-start-line="1477" selection-start-column="49" selection-end-line="1477" selection-end-column="49" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#Doc#1;class#Doc#0" expanded="false" />
             <element signature="method#file_read#0;class#Doc#0" expanded="false" />
             <element signature="method#print#0;class#Doc#0" expanded="false" />
             <element signature="method#println#0;class#Doc#0" expanded="false" />
