@@ -47,7 +47,7 @@ public class MyImage {
 
         int[][] pixelsArray = new int[w][h];
         for (int i = 0; i < lenna.width; i += 2) {
-            for (int j = 0; j < lenna.width; j += 2) {
+            for (int j = 0; j < lenna.height; j += 2) {
                 pixelsArray[i / 2][j / 2] = lenna.image.getRGB(i, j);
             }
         }
@@ -70,7 +70,7 @@ public class MyImage {
 
         int[][] pixelsArray = new int[w][h];
         for (int i = 0; i < width; i += 2) {
-            for (int j = 0; j < width; j += 2) {
+            for (int j = 0; j < height; j += 2) {
                 pixelsArray[i / 2][j / 2] = image.getRGB(i, j);
             }
         }
