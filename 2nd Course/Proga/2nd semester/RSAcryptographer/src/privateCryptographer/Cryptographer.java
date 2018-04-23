@@ -1,6 +1,12 @@
+package privateCryptographer;
+
+import keys.PrivateKey;
+import keys.PublicKey;
+
 import java.awt.image.BufferedImage;
 import java.math.BigInteger;
 import java.util.Random;
+
 
 public class Cryptographer {
     private BigInteger integer;

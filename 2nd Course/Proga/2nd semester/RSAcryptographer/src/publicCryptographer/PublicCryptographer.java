@@ -1,3 +1,7 @@
+package publicCryptographer;
+
+import keys.PublicKey;
+
 import java.awt.image.BufferedImage;
 import java.math.BigInteger;
 
