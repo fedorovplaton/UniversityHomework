@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1014e1bd-08cb-4699-97d2-70d3cdd50223" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/Reverse interpolation/Reverse interpolation/Reverse interpolation.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/Reverse interpolation/Reverse interpolation/Reverse interpolation.vcxproj" />
-      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The Newton-Gauss interpolation/The Newton-Gauss interpolation/The Newton-Gauss interpolation.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The Newton-Gauss interpolation/The Newton-Gauss interpolation/The Newton-Gauss interpolation.vcxproj" />
-      <change beforePath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The scheme of Aitken/The scheme of Aitken/The scheme of Aitken.vcxproj" afterPath="$PROJECT_DIR$/../../../Methods of calculation/HW2/The scheme of Aitken/The scheme of Aitken/The scheme of Aitken.vcxproj" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,22 +17,9 @@
       <file leaf-file-name="MyDBMS.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="1495" column="82" lean-forward="false" selection-start-line="1495" selection-start-column="82" selection-end-line="1495" selection-end-column="82" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-                <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-                <element signature="method#print#0;class#Doc#0" expanded="false" />
-                <element signature="method#println#0;class#Doc#0" expanded="false" />
-                <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-                <element signature="method#read#0;class#Patient#0" expanded="false" />
-                <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-                <element signature="method#print#0;class#Patient#0" expanded="false" />
-                <element signature="method#println#0;class#Patient#0" expanded="false" />
-                <element signature="method#ID#0;class#ID#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="795">
+              <caret line="1156" column="46" lean-forward="false" selection-start-line="1156" selection-start-column="46" selection-end-line="1156" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,10 +48,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1030" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -121,14 +105,42 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="MyDBMS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
+            <path>
+              <item name="MyDBMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyDBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MyDBMS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="Doc" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="MyDBMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyDBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MyDBMS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="ID" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="MyDBMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyDBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MyDBMS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="MyDBMS" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="MyDBMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyDBMS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MyDBMS.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="Patient" type="1a9f42e2:ClassTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,7 +392,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="976" height="1030" extended-state="1" />
+    <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -388,20 +400,20 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26155582" sideWeight="0.1671875" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22381379" sideWeight="0.1671875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2718232" sideWeight="0.8328125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2718232" sideWeight="0.8328125" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2348643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.010674637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -431,20 +443,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -452,20 +451,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -473,20 +459,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -494,20 +467,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -515,20 +475,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -536,20 +483,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -557,20 +491,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -578,20 +499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,20 +507,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -620,20 +515,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -641,20 +523,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -662,20 +531,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,20 +539,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -716,22 +575,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyDBMS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="1495" column="82" lean-forward="false" selection-start-line="1495" selection-start-column="82" selection-end-line="1495" selection-end-column="82" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#Doc#0;class#Doc#0" expanded="false" />
-            <element signature="method#file_read#0;class#Doc#0" expanded="false" />
-            <element signature="method#print#0;class#Doc#0" expanded="false" />
-            <element signature="method#println#0;class#Doc#0" expanded="false" />
-            <element signature="method#Patient#1;class#Patient#0" expanded="false" />
-            <element signature="method#read#0;class#Patient#0" expanded="false" />
-            <element signature="method#file_read#0;class#Patient#0" expanded="false" />
-            <element signature="method#print#0;class#Patient#0" expanded="false" />
-            <element signature="method#println#0;class#Patient#0" expanded="false" />
-            <element signature="method#ID#0;class#ID#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="795">
+          <caret line="1156" column="46" lean-forward="false" selection-start-line="1156" selection-start-column="46" selection-end-line="1156" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
