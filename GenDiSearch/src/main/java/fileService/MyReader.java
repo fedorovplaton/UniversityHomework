@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 
-public class FileReader {
+public class MyReader {
     private ArrayList<String> files = new ArrayList<>();
     private HashMap<String, HashMap<String, String>> sequences = new HashMap<>();
 
@@ -17,8 +17,8 @@ public class FileReader {
         return sequences;
     }
 
-    //Constructs FileReader object using filePath
-    public FileReader(String filePath) throws IOException {
+    //Constructs MyReader object using filePath
+    public MyReader(String filePath) throws IOException {
         listFiles(filePath);
 
         for (String file : files) {
@@ -28,8 +28,8 @@ public class FileReader {
         }
     }
 
-    //Constructs FileReader object from file, that was just downloaded
-    public FileReader(File folder) throws IOException {
+    //Constructs MyReader object from file, that was just downloaded
+    public MyReader(File folder) throws IOException {
         File[] files = folder.listFiles();
         Date currentTime = new Date();
         if (files != null) {
@@ -98,7 +98,7 @@ public class FileReader {
             sequences.put(key, sequence);
             return sequences;
         } catch (IOException e) {
-            System.err.println("Can not read the file");
+            System.err.println(e.getMessage());
             return null;
         }
 
