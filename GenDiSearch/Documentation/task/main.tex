@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{cmap} % Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english, russian]{babel} % Языки: русский, английский
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+\begin{document}
+    \begin{titlepage}
+        \newpage
+            \begin{center}
+                \Large Библиотека для поиска генетических заболеваний:\\
+                Техническое задание
+            \end{center}
+    \end{titlepage}
+    
+    \part{Техническое задание}
+        \begin{enumerate}
+          \item \textbf{Наименование}: \\Библиотека для поиска генетических заболеваний
+          \item \textbf{Назначение}: \\Обработка больших массивов файлов формата FASTA и посик мутаций в генах, характерных для тех или иных заболеваний         
+          \item \textbf{Функции}:
+          \begin{enumerate}
+              \item \emph{Чтение из файла}: \\Чтение файлов из директории для дальнейшей обработки
+              \item \emph{Запись в файл}: \\Создание файла с названием файла, id последовательности и информации о наличии болезней
+              \item \emph{Скачивание данных}: \\Скачивание фалов с последовательностями, содержащими гены с мутациями, с сайта \href{https://www.ncbi.nlm.nih.gov/nuccore}{NCBI}
+              \item \emph{Поиск болезней}: \\Поиск заболеваний, связанных с изменением в структуре генов
+          \end{enumerate}
+          \item \textbf{Структура}:
+         	 \begin{enumerate}
+        		\item \emph{Пакет для первичной обработки файлов}
+        		\item\emph{Пакет для поиска болезней}
+         	 \end{enumerate}
+          \item \textbf{Интерфейс}: \\Доступ к основным функциям
+        \end{enumerate}
+
+\end{document} 

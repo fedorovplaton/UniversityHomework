@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{cmap} % Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english, russian]{babel} % Языки: русский, английский
+\usepackage[left = 2cm, right = 2cm, top = 2cm, bottom = 2cm, bindingoffset = 0cm]{geometry} % Отступы
+\usepackage{hyperref}
+
+\begin{document}
+    \begin{titlepage}
+        \newpage
+            \begin{center}
+                \Large Библиотека для поиска генетических заболеваний:\\
+                Итоги работы
+            \end{center}
+    \end{titlepage}
+    
+    \part{Итоги работы}
+        \section{Реализованные функции}
+            \subsection{\emph{Чтение из файла:}}
+            	\begin{itemize}
+            		\item Рекурсивное чтение всех FASTA файлов из директории
+            	\end{itemize}
+             \subsection{\emph{Запись в файл:}}
+             	\begin{itemize}
+             		\item Создание файла с информайией о последовательности (ID, путь к файлу в котором она хранится, результат поиска болезни) 
+             	\end{itemize}
+            \subsection{\emph{Скачивание данных:}}
+            	\begin{itemize}
+            		\item Скачиване одним файлом всех последовательностей, найденных по поисковому запросу на \href{https://www.ncbi.nlm.nih.gov/nuccore}{NCBI}
+            	\end{itemize}
+             \subsection{\emph{Поиск болезней:}}
+             	\begin{itemize}
+             		\item Реализован поиск болезни Гентнигтона 
+             	\end{itemize}
+        \section {Структура:}
+        	\subsection{\emph{Пакет fileService:}}
+            	\begin{itemize}
+            		\item FileReader.java осуществляет чтение данных из файлов и директорий
+                    \item FileDownloader.java скачивает данные с сайта \href{https://www.ncbi.nlm.nih.gov/nuccore}{NCBI}
+                    \item FileSaver.java сохраняет собранную статистику в файл
+            	\end{itemize}
+             \subsection{\emph{Пакет diseases:}}
+             	\begin{itemize}
+             		\item Huntington.java поиск изменений гена, характерных для болезни Гентингтона 
+             	\end{itemize}
+       	\section{\emph{Перспективы:}}
+        	\begin{itemize}
+        		\item Добавление классов для поиска других заболеваний
+                \item Добавление удобного пользавотельского интерфейса
+                \item Обработка последовательностей, хранящихся в других базах данных
+        	\end{itemize}
+            
+\end{document} 
