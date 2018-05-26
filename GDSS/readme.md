@@ -1,1 +1,0 @@
-# Genetic Disease Searching System
