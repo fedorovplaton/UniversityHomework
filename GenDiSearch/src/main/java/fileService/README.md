@@ -20,15 +20,15 @@
       * `public FileSaver` constructor
       * `public void save()` saves file in `folder` named as `fileName` and containing `statistics`
       
-## `MyReader.java` 
+## `FileReader.java` 
 
   1. Fields:
       * `private ArrayList<String> files` contains list of absolute paths to files which will be read
       * `private HashMap<String, HashMap<String, String>> sequences` contains absolute paths to files 
       with sequences with their identifiers
   2. Methods:
-      * `public MyReader(String filePath)` constructor that reads files from `filePath` 
-      * `public MyReader(File folder)` consrtuctor that reads file that was jast downloaded
+      * `public FileReader(String filePath)` constructor that reads files from `filePath` 
+      * `public FileReader(File folder)` consrtuctor that reads file that was jast downloaded
       * `private void listFiles(String filePath)` recursively finds all files in `filePath` directory
       * `private HashMap<String, String> sequenceBuilder(String filePath)` reads information from `filePath` file and saves
       in `private HashMap<String, HashMap<String, String>> sequences`
