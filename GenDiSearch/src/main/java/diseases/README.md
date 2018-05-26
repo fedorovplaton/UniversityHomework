@@ -1,4 +1,4 @@
-# Package diseases
+# Package `diseases`
 
 ## What should Your class include
   1. Fields:
