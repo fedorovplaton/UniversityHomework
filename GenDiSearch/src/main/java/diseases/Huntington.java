@@ -1,7 +1,7 @@
 package diseases;
 
 import fileService.FileDownloader;
-import fileService.MyReader;
+import fileService.FileReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Huntington {
-    private MyReader file;
+    private FileReader file;
     private HashMap<String, HashMap<String,String>> statistics=new HashMap<>();
 
     //Downloads fasta files from GenBank, which may contain a sequences with Huntington disease
@@ -20,16 +20,16 @@ public class Huntington {
         downloader.genbankDownload();
 
         File download = new File(downloadPath);
-        file = new MyReader(download);
+        file = new FileReader(download);
     }
 
-    public Huntington(MyReader file){
+    public Huntington(FileReader file){
         this.file=file;
     }
 
 
 
-    public MyReader getFile() {
+    public FileReader getFile() {
         return file;
     }
 

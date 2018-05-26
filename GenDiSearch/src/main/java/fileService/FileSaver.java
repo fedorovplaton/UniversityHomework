@@ -53,7 +53,9 @@ public class FileSaver {
                     writer.write(file + ":\n");
 
                     for (String key : keys) {
-                        writer.write(key + " :: " + sequences.get(key) + "\n");
+                        if (!key.equals("")){
+                            writer.write(key + " :: " + sequences.get(key) + "\n");
+                        }
                     }
                 }
 
