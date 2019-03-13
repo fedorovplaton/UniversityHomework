@@ -13,7 +13,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema tour_agency
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `tour_agency` ;
+-- DROP SCHEMA IF EXISTS `tour_agency` ;
 
 -- -----------------------------------------------------
 -- Schema tour_agency
@@ -24,7 +24,7 @@ USE `tour_agency` ;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`country`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`country` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`country` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`country` (
   `country_id` INT NOT NULL,
@@ -41,7 +41,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`language`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`language` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`language` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`language` (
   `language_id` INT NOT NULL,
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`language_has_country`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`language_has_country` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`language_has_country` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`language_has_country` (
   `language_id` INT NOT NULL,
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`river`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`river` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`river` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`river` (
   `river_id` INT NOT NULL,
@@ -94,7 +94,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`country_has_river`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`country_has_river` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`country_has_river` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`country_has_river` (
   `country_id` INT NOT NULL,
@@ -118,7 +118,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`lake`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`lake` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`lake` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`lake` (
   `lake_id` INT NOT NULL,
@@ -134,7 +134,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`lake_has_country`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`lake_has_country` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`lake_has_country` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`lake_has_country` (
   `lake_id` INT NOT NULL,
@@ -157,7 +157,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`city`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`city` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`city` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`city` (
   `city_id` INT NOT NULL,
@@ -182,7 +182,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`sights`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`sights` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`sights` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`sights` (
   `sights_id` INT NOT NULL,
@@ -206,7 +206,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`museum`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`museum` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`museum` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`museum` (
   `museum_id` INT NOT NULL,
@@ -231,7 +231,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`theatre`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`theatre` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`theatre` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`theatre` (
   `theatre_id` INT NOT NULL,
@@ -257,7 +257,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`play`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`play` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`play` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`play` (
   `play_id` INT NOT NULL,
@@ -273,7 +273,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`play_has_language`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`play_has_language` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`play_has_language` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`play_has_language` (
   `language_id` INT NOT NULL,
@@ -296,7 +296,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`restourant`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`restourant` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`restourant` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`restourant` (
   `restourant_id` INT NOT NULL,
@@ -322,7 +322,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`hotel`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`hotel` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`hotel` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`hotel` (
   `hotel_id` INT NOT NULL,
@@ -345,7 +345,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`distance_between_cities`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`distance_between_cities` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`distance_between_cities` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`distance_between_cities` (
   `city_city_id` INT NOT NULL,
@@ -369,7 +369,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tour_agency`.`play_has_theatre`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `tour_agency`.`play_has_theatre` ;
+-- DROP TABLE IF EXISTS `tour_agency`.`play_has_theatre` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`play_has_theatre` (
   `play_id` INT NOT NULL,
