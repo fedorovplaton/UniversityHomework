@@ -372,27 +372,100 @@ ENGINE = InnoDB;
 -- DROP TABLE IF EXISTS `tour_agency`.`play_has_theatre` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`play_has_theatre` (
-  `play_id` INT NOT NULL,
-  `theatre_id` INT NOT NULL,
-  INDEX `fk_play_has_theatre_theatre1_idx` (`theatre_id` ASC) ,
-  INDEX `fk_play_has_theatre_play1_idx` (`play_id` ASC) ,
-  CONSTRAINT `fk_play_has_theatre_play1`
-    FOREIGN KEY (`play_id`)
-    REFERENCES `tour_agency`.`play` (`play_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_play_has_theatre_theatre1`
-    FOREIGN KEY (`theatre_id`)
-    REFERENCES `tour_agency`.`theatre` (`theatre_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    `play_id` INT NOT NULL,
+    `theatre_id` INT NOT NULL,
+    INDEX `fk_play_has_theatre_theatre1_idx` (`theatre_id` ASC),
+    INDEX `fk_play_has_theatre_play1_idx` (`play_id` ASC),
+    CONSTRAINT `fk_play_has_theatre_play1` FOREIGN KEY (`play_id`)
+        REFERENCES `tour_agency`.`play` (`play_id`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION,
+    CONSTRAINT `fk_play_has_theatre_theatre1` FOREIGN KEY (`theatre_id`)
+        REFERENCES `tour_agency`.`theatre` (`theatre_id`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
+)  ENGINE=INNODB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-insert into country(country_id, name, area, population, created_at, description) values (1, 'Russia', 17000000, 155000000, '1991-12-29', 'Very good city');
-insert into city(city_id, name, population, area, description, image, country_id, created_at) values (1, 'Saint Petersburg', 7000000, 1, 'Very good city','image',1,'1703-01-01');
-select * from country, city where country.country_id = city.country_id;
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR country TABLE
+-- -----------------------------------------------------
+INSERT INTO country(country_id, name, area, population, created_at, description) VALUES (1, 'Russia', 17000000, 155000000, '1991-12-29', 'Very good city');
+INSERT INTO country(country_id, name, area, population, created_at, description) VALUES (2, 'France', 643801, 67120000, '1789-07-14', 'Nice country');
+INSERT INTO country(country_id, name, area, population, created_at, description) VALUES (3, 'Germany', 357386, 82790000, '1990-10-03', 'Interesting country');
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR city TABLE
+-- -----------------------------------------------------
+INSERT INTO city(city_id, name, population, area, description, image, country_id, created_at) VALUE (1, 'Saint Petersburg', 7000000, 1, 'Very good city','image',1,'1703-01-01');
+INSERT INTO city(city_id, name, population, area, description, image, country_id, created_at) VALUE (2, 'Moscow', 11000000, 2511, 'Not bad city','image',1,'1147-01-01');
+INSERT INTO city(city_id, name, population, area, description, image, country_id, created_at) VALUE (3, 'Paris', 2200000, 105.4, 'Fine city','image',2,'0000-00-00');
+INSERT INTO city(city_id, name, population, area, description, image, country_id, created_at) VALUE (4, 'Berlin', 3611222, 891.12, 'Boring city','image',3,'1244-01-26');
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR distance_between_cities TABLE
+-- -----------------------------------------------------
+INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (1, 2, 713.9);
+INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (1, 4, 1736.1);
+INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (3, 4, 1053.9);
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR lake TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR lake_has_country TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR river TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR country_has_river TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR language TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR language_has_country TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR sights TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR museum TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR restourant TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR hotel TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR theatre TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR play TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR play_has_theatre TABLE
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- INSERT STATMENTS FOR play_has_language TABLE
+-- -----------------------------------------------------
+
+
+SELECT * FROM country, city WHERE country.country_id = city.country_id;
