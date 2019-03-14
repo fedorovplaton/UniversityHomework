@@ -8,12 +8,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
 -- Schema tour_agency
 -- -----------------------------------------------------
--- DROP SCHEMA IF EXISTS `tour_agency` ;
+DROP SCHEMA IF EXISTS `tour_agency` ;
 
 -- -----------------------------------------------------
 -- Schema tour_agency
@@ -29,7 +26,7 @@ USE `tour_agency` ;
 CREATE TABLE IF NOT EXISTS `tour_agency`.`country` (
   `country_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `area` DECIMAL(20) NOT NULL,
+  `area` DOUBLE NOT NULL,
   `population` INT NOT NULL,
   `created_at` DATE NULL,
   `description` MEDIUMTEXT NULL,
@@ -84,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `tour_agency`.`river` (
   `river_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` MEDIUMTEXT NULL,
-  `length` DECIMAL(20) NOT NULL,
+  `length` DOUBLE NOT NULL,
   `image` MEDIUMTEXT NULL,
   PRIMARY KEY (`river_id`),
   UNIQUE INDEX `river_id_UNIQUE` (`river_id` ASC) )
@@ -99,7 +96,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tour_agency`.`country_has_river` (
   `country_id` INT NOT NULL,
   `river_id` INT NOT NULL,
-  `length_in_country` DECIMAL(20) NOT NULL,
+  `length_in_country` DOUBLE NOT NULL,
   INDEX `fk_country_has_river_river1_idx` (`river_id` ASC) ,
   INDEX `fk_country_has_river_country1_idx` (`country_id` ASC) ,
   CONSTRAINT `fk_country_has_river_country1`
@@ -123,7 +120,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tour_agency`.`lake` (
   `lake_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `area` DECIMAL(20) NOT NULL,
+  `area` DOUBLE NOT NULL,
   `description` MEDIUMTEXT NULL,
   `image` MEDIUMTEXT NULL,
   PRIMARY KEY (`lake_id`),
@@ -163,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `tour_agency`.`city` (
   `city_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `population` INT NOT NULL,
-  `area` DECIMAL(20) NOT NULL,
+  `area` DOUBLE NOT NULL,
   `description` MEDIUMTEXT NULL,
   `image` MEDIUMTEXT NULL,
   `country_id` INT NOT NULL,
@@ -304,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `tour_agency`.`restourant` (
   `address` MEDIUMTEXT NULL,
   `opens_at` TIME NULL,
   `closes_at` TIME NULL,
-  `rate` DECIMAL(20) NULL,
+  `rate` DOUBLE NULL,
   `city_id` INT NOT NULL,
   `description` MEDIUMTEXT NULL,
   `phone` MEDIUMTEXT NULL,
@@ -328,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `tour_agency`.`hotel` (
   `hotel_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `address` MEDIUMTEXT NULL,
-  `rate` DECIMAL(20) NULL,
+  `rate` DOUBLE NULL,
   `description` MEDIUMTEXT NULL,
   `city_id` INT NOT NULL,
   PRIMARY KEY (`hotel_id`),
@@ -350,7 +347,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tour_agency`.`distance_between_cities` (
   `city_city_id` INT NOT NULL,
   `city_city_id1` INT NOT NULL,
-  `distance` DECIMAL(20) NOT NULL,
+  `distance` DOUBLE NOT NULL,
   INDEX `fk_city_has_city_city2_idx` (`city_city_id1` ASC) ,
   INDEX `fk_city_has_city_city1_idx` (`city_city_id` ASC) ,
   CONSTRAINT `fk_city_has_city_city1`
@@ -470,21 +467,21 @@ INSERT INTO sights(sights_id, name, created_at, image, description, city_id, add
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR museum TABLE
 -- -----------------------------------------------------
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (1,'The Hermitage (The Winter Palace)','1850-11-14','10:00:00','18:00:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (2,'St. Isaac''s Cathedral & Colonnade','1858-01-01','11:00:00','17:00:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (3,'The Peter & Paul Fortress','1750-11-14','09:30:00','17:45:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (4,'Church of Our Saviour on Spilled Blood','1820-11-14','10:00:00','18:00:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (5,'State Russian Museum','1899-12-05','11:00:00','18:00:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (6,'The Kunstkammer','1718-09-01','10:00:00','17:00:00','Nice museum', 'image', 1, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (7,'ST BASIL''S CATHEDRAL','1512-01-01','11:00:00','17:00:00','Nice museum', 'image', 2, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (8,'STATE HISTORICAL MUSEUM','1872-12-31','09:00:00','21:00:00','Nice museum', 'image', 2, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (9,'TRETYAKOV GALLERY','1905-10-14','09:00:00','21:00:00','Nice museum', 'image', 2, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (10,'Paris art museum','1922-12-14','09:00:00','21:00:00','Nice museum', 'image', 3, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (11,'Paris scince museum','1999-11-23','09:00:00','18:00:00','Nice museum', 'image', 3, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (12,'Paris trains museum','1899-09-14','11:00:00','17:00:00','Nice museum', 'image', 3, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (13,'Paris stones museum','2019-03-14','12:00:00','13:00:00','Nice museum', 'image', 3, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (14,'Berlin weapon museum','1939-09-01','04:00:00','21:00:00','Nice museum', 'image', 4, 'address');
-INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (14,'Berlin politic museum','1990-08-31','10:00:00','18:00:00','Nice museum', 'image', 4, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (1,'The Hermitage (The Winter Palace)','10:00:00','18:00:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (2,'St. Isaac''s Cathedral & Colonnade','11:00:00','17:00:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (3,'The Peter & Paul Fortress','09:30:00','17:45:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (4,'Church of Our Saviour on Spilled Blood','10:00:00','18:00:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (5,'State Russian Museum','11:00:00','18:00:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (6,'The Kunstkammer','10:00:00','17:00:00','Nice museum', 'image', 1, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (7,'ST BASIL''S CATHEDRAL','11:00:00','17:00:00','Nice museum', 'image', 2, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (8,'STATE HISTORICAL MUSEUM','09:00:00','21:00:00','Nice museum', 'image', 2, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (9,'TRETYAKOV GALLERY','09:00:00','21:00:00','Nice museum', 'image', 2, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (10,'Paris art museum','09:00:00','21:00:00','Nice museum', 'image', 3, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (11,'Paris scince museum','09:00:00','18:00:00','Nice museum', 'image', 3, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (12,'Paris trains museum','11:00:00','17:00:00','Nice museum', 'image', 3, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (13,'Paris stones museum','12:00:00','13:00:00','Nice museum', 'image', 3, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (14,'Berlin weapon museum','04:00:00','21:00:00','Nice museum', 'image', 4, 'address');
+INSERT INTO museum(museum_id, name, opens_at, closes_at, description, image, city_id, address) VALUE (15,'Berlin politic museum','10:00:00','18:00:00','Nice museum', 'image', 4, 'address');
 
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR restourant TABLE
@@ -513,18 +510,67 @@ INSERT INTO hotel(hotel_id, name, address, rate, description, city_id) VALUE (8,
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR theatre TABLE
 -- -----------------------------------------------------
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (1,'Mariinsky theater', 'Nice theatre', 'Image','address','10:00:00','20:00:00', 1, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (2,'Doll theatre', 'Nice theatre', 'Image','address','10:00:00','18:00:00', 1, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (3,'Modern theater', 'Nice theatre', 'Image','address','14:00:00','23:00:00', 1, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (4,'Bolshoi theater', 'Nice theatre', 'Image','address','10:00:00','20:00:00', 2, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (5,'Old theater', 'Nice theatre', 'Image','address','11:00:00','21:00:00', 2, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (6,'Maly Theatre', 'Nice theatre', 'Image','address','09:00:00','22:00:00', 2, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (7,'SALLE GAVEAU', 'Nice theatre', 'Image','address','11:00:00','22:00:00', 3, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (8,'THEATRE MONTPARNASSE', 'Nice theatre', 'Image','address','10:00:00','23:00:00', 3, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (9,'THEATRE RANELAGH', 'Nice theatre', 'Image','address','12:00:00','19:00:00', 3, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (10,'Berliner Ensemble', 'Nice theatre', 'Image','address','11:00:00','20:00:00', 4, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (11,'Berliner Kriminal Theater', 'Nice theatre', 'Image','address','19:00:00','04:00:00', 4, 'phone');
+INSERT INTO theatre(theatre_id, name, description, image, address, opens_at, closes_at, city_id, phone) VALUE (12,'Deutsches Theater Berlin', 'Nice theatre', 'Image','address','12:00:00','22:00:00', 4, 'phone');
 
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR play TABLE
 -- -----------------------------------------------------
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (1,'Hamlet', '2019-01-14', '2019-04-01','Nice play');
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (2,'Oliver Twist', '2018-11-14', '2019-01-11','Nice play');
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (3,'Swan lake', '2019-01-14', '2019-11-11','Nice play');
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (4,'Cats', '2018-01-14', '2019-01-14','Nice play');
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (5,'At the bottom', '2018-12-30', '2019-10-12','Nice play');
+INSERT INTO play(play_id, name, starts_at, ends_at, description) VALUE (6,'Cherry orchard', '2017-10-03', '2018-12-10','Nice play');
 
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR play_has_theatre TABLE
 -- -----------------------------------------------------
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (1,5);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (1,12);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (1,3);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (2,7);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (2,6);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (2,9);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (3,4);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (3,1);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (3,11);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (4,7);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (4,2);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (4,5);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (5,10);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (5,3);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (5,8);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (6,1);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (6,3);
+INSERT INTO play_has_theatre(play_id, theatre_id) VALUE (6,5);
 
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR play_has_language TABLE
 -- -----------------------------------------------------
+INSERT INTO play_has_language(language_id, play_id) VALUE (1,1);
+INSERT INTO play_has_language(language_id, play_id) VALUE (2,1);
+INSERT INTO play_has_language(language_id, play_id) VALUE (4,1);
+INSERT INTO play_has_language(language_id, play_id) VALUE (1,2);
+INSERT INTO play_has_language(language_id, play_id) VALUE (3,2);
+INSERT INTO play_has_language(language_id, play_id) VALUE (4,2);
+INSERT INTO play_has_language(language_id, play_id) VALUE (1,3);
+INSERT INTO play_has_language(language_id, play_id) VALUE (4,4);
+INSERT INTO play_has_language(language_id, play_id) VALUE (1,5);
+INSERT INTO play_has_language(language_id, play_id) VALUE (2,5);
+INSERT INTO play_has_language(language_id, play_id) VALUE (3,5);
+INSERT INTO play_has_language(language_id, play_id) VALUE (1,6);
 
+-- select * from sights;
 
-SELECT * FROM country, city WHERE country.country_id = city.country_id;
+-- SELECT * FROM country, city WHERE country.country_id = city.country_id;
