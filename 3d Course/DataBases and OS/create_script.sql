@@ -827,3 +827,51 @@ DROP INDEX unique_play_name ON play;
 -- -----------------------------------------------------
 CREATE INDEX street_house ON address (street, house);
 -- -----------------------------------------------------
+
+
+-- -----------------------------------------------------
+-- -----------------------TRIGGER-----------------------
+-- -----------------------------------------------------
+SELECT * FROM address;
+
+DELIMITER $$
+CREATE TRIGGER tr_ins_address
+BEFORE INSERT ON address
+FOR EACH ROW 
+BEGIN
+	DECLARE varAddressId INTEGER;
+    SELECT MAX(address_id)+1 INTO varAddressId FROM address;
+    SET NEW.address_id = varAddressId;
+END; $$
+DELIMITER ; 
+
+INSERT INTO address(street, house, city_id) VALUE('Botanicheskaya street', 11, 1);
+
+SELECT * FROM address;
+-- -----------------------------------------------------
+
+
+-- -----------------------------------------------------
+-- ----------------------PROCEDURE----------------------
+-- -----------------------------------------------------
+SELECT * FROM distance_between_cities;
+
+DROP PROCEDURE IF EXISTS AddDistanceBetweenCities;
+
+DELIMITER $$
+CREATE PROCEDURE AddDistanceBetweenCities (from_city_id INT, to_city_id INT, distance DOUBLE)
+BEGIN
+	DECLARE roadCount INT DEFAULT 0;
+    SELECT COUNT(*) INTO roadCount FROM distance_between_cities WHERE (city_city_id = from_city_id AND city_city_id1 = to_city_id) OR (city_city_id1 = from_city_id AND city_city_id = to_city_id);
+	IF (roadCount = 0) AND (from_city_id != to_city_id)
+    THEN 
+		INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (from_city_id, to_city_id, distance);
+    END IF;
+END $$
+DELIMITER ;
+
+CALL AddDistanceBetweenCities (1,3,111);
+
+
+SELECT * FROM distance_between_cities;
+-- -----------------------------------------------------
