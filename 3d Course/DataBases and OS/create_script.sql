@@ -621,7 +621,7 @@ INSERT INTO play_has_theatre(play_id, theatre_id, starts_at, ends_at, language_i
 INSERT INTO play_has_theatre(play_id, theatre_id, starts_at, ends_at, language_id) VALUE (6, 9, '2019-03-01', '2019-05-30', 3);
 
 -- -----------------------------------------------------
--- SELECT STATEMENTS
+-- ------------------SELECT STATEMENTS------------------
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
@@ -750,3 +750,43 @@ SELECT cntr.name AS 'Country', c.name AS 'City', dbc.distance AS 'Distance'
 			ORDER BY dbc.distance ASC;
 -- -----------------------------------------------------
 
+-- -----------------------------------------------------
+-- -------------DATA MODIFICATION OPERATORS-------------
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 1. Change Saint Petersburg population and area
+-- -----------------------------------------------------
+UPDATE city AS c SET c.population = 5000000, c.area = 1439 WHERE c.city_id = 1;
+SELECT c.population, c.area FROM city AS c WHERE c.city_id = 1;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 2. Change theatre phone number if it's 'phone'
+-- -----------------------------------------------------
+UPDATE theatre AS t SET t.phone = CONCAT(FLOOR((RAND()*10000000+10000000))) WHERE t.phone = 'phone';
+SELECT t.phone FROM theatre AS t;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 3. Delete 'roads' if they connect one city
+-- -----------------------------------------------------
+INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (1,1,1212);
+SELECT * FROM distance_between_cities;
+DELETE FROM distance_between_cities
+	WHERE city_city_id = city_city_id1;
+SELECT * FROM distance_between_cities;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 4. Insert Chinese language
+-- -----------------------------------------------------
+INSERT INTO language(language_id, name)  SELECT MAX(language_id)+1, 'Chinese' FROM language; 
+SELECT * FROM language;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- ------------------------VIEW------------------------
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
