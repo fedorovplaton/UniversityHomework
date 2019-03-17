@@ -322,7 +322,7 @@ DROP TABLE IF EXISTS `tour_agency`.`distance_between_cities` ;
 CREATE TABLE IF NOT EXISTS `tour_agency`.`distance_between_cities` (
   `city_city_id` INT NOT NULL,
   `city_city_id1` INT NOT NULL,
-  `distance` DECIMAL(20) NOT NULL,
+  `distance` DOUBLE NOT NULL,
   INDEX `fk_city_has_city_city2_idx` (`city_city_id1` ASC) ,
   INDEX `fk_city_has_city_city1_idx` (`city_city_id` ASC) ,
   CONSTRAINT `fk_city_has_city_city1`
@@ -695,38 +695,58 @@ UNION
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- 7. Select 
+-- 7. Select cities with number of their sights
+-- -----------------------------------------------------
+SELECT cntr.name AS 'Country', c.name AS 'City', COUNT(s.sights_id) AS 'Number of sights'
+	FROM city AS c, country AS cntr, address AS a, sights AS s
+		WHERE c.country_id = cntr.country_id AND a.city_id = c.city_id AND s.address_id = a.address_id
+			GROUP BY c.name;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
-
+-- 8. Select plays which goes today on German language
 -- -----------------------------------------------------
--- 8. Select 
--- -----------------------------------------------------
-
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- 9. Select 
--- -----------------------------------------------------
-
+SELECT cntr.name AS 'Country', c.name AS 'City', t.name AS 'Theatre',
+		t.description AS 'Description', t.image AS 'Image', t.opens_at AS 'Opens at',
+        t.closes_at AS 'Closes at', t.phone AS 'Phone', a.street AS 'Street',
+        a.house AS 'House', p.name AS 'Play', p.description AS 'Play descripton', pht.starts_at AS 'Play starts', pht.ends_at AS 'Play ends'
+	FROM city AS c, country AS cntr, address AS a, theatre AS t, play_has_theatre AS pht, play AS p, language AS l
+		WHERE c.country_id = cntr.country_id AND a.city_id = c.city_id AND t.address_id = a.address_id AND t.theatre_id = pht.theatre_id AND p.play_id = pht.play_id AND pht.language_id = l.language_id AND l.name = 'German' AND pht.starts_at <= CURDATE() AND pht.ends_at >= CURDATE();
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- 10. Select 
+-- 9. Select average hotel rating in cities
+-- -----------------------------------------------------
+SELECT cntr.name AS 'Country', c.name AS 'City', AVG(h.rate) AS 'Average hotel rating'
+	FROM city AS c, country AS cntr, address AS a, hotel AS h
+		WHERE c.country_id = cntr.country_id AND a.city_id = c.city_id AND h.address_id = a.address_id
+			GROUP BY c.name
+            ORDER BY AVG(h.rate) DESC;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
-
+-- 10. Select number of each language speakers in country
 -- -----------------------------------------------------
--- 11. Select 
--- -----------------------------------------------------
-
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- 12. Select 
+SELECT cntr.name AS 'Cuntry', l.name AS 'Language', lhc.speakers AS 'Number of speakers'
+	FROM country AS cntr, language AS l, language_has_country AS lhc
+		WHERE cntr.country_id = lhc.country_id AND lhc.language_id = l.language_id
+			ORDER BY lhc.speakers DESC;
 -- -----------------------------------------------------
 
+-- -----------------------------------------------------
+-- 11. Select museums which are open now in Saint Petersburg
+-- -----------------------------------------------------
+SELECT m.name AS 'Museum', m.closes_at AS 'Closes at', m.description AS 'Description', m.image AS 'Image', a.street AS 'Street', a.house AS 'House'
+	FROM museum AS m, address AS a
+		WHERE m.address_id = a.address_id AND a.city_id = 1 AND m.opens_at <= CURTIME() AND m.closes_at > CURTIME(); 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 12. Select distation between Saint Petersburg and other cities 
+-- -----------------------------------------------------
+SELECT cntr.name AS 'Country', c.name AS 'City', dbc.distance AS 'Distance'
+	FROM city AS c, country AS cntr, distance_between_cities AS dbc
+		WHERE dbc.city_city_id = 1 AND dbc.city_city_id1 = c.city_id AND c.country_id = cntr.country_id
+			ORDER BY dbc.distance ASC;
 -- -----------------------------------------------------
 
