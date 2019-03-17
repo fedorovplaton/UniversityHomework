@@ -500,21 +500,21 @@ INSERT INTO address(address_id, street, house, city_id) VALUE (42, 'Boulevard Sa
 INSERT INTO address(address_id, street, house, city_id) VALUE (43, 'Boulevard Saint-Michel', 24, 3);
 INSERT INTO address(address_id, street, house, city_id) VALUE (44, 'Boulevard Saint-Michel', 25, 3);
 INSERT INTO address(address_id, street, house, city_id) VALUE (45, 'Boulevard Saint-Michel', 26, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (46, 'Spandauer Straße', 27, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (47, 'Spandauer Straße', 28, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (48, 'Spandauer Straße', 29, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (49, 'Spandauer Straße', 30, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (50, 'Brückenstraße', 31, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (51, 'Brückenstraße', 32, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (52, 'Brückenstraße', 33, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (53, 'Brückenstraße', 34, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (54, 'Brückenstraße', 35, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (55, 'Brückenstraße', 36, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (56, 'Neue Roßstraße', 37, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (57, 'Neue Roßstraße', 38, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (58, 'Neue Roßstraße', 39, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (59, 'Neue Roßstraße', 40, 3);
-INSERT INTO address(address_id, street, house, city_id) VALUE (60, 'Neue Roßstraße', 41, 3);
+INSERT INTO address(address_id, street, house, city_id) VALUE (46, 'Spandauer Straße', 27, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (47, 'Spandauer Straße', 28, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (48, 'Spandauer Straße', 29, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (49, 'Spandauer Straße', 30, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (50, 'Brückenstraße', 31, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (51, 'Brückenstraße', 32, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (52, 'Brückenstraße', 33, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (53, 'Brückenstraße', 34, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (54, 'Brückenstraße', 35, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (55, 'Brückenstraße', 36, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (56, 'Neue Roßstraße', 37, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (57, 'Neue Roßstraße', 38, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (58, 'Neue Roßstraße', 39, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (59, 'Neue Roßstraße', 40, 4);
+INSERT INTO address(address_id, street, house, city_id) VALUE (60, 'Neue Roßstraße', 41, 4);
 
 -- -----------------------------------------------------
 -- INSERT STATMENTS FOR sights TABLE
@@ -620,6 +620,113 @@ INSERT INTO play_has_theatre(play_id, theatre_id, starts_at, ends_at, language_i
 INSERT INTO play_has_theatre(play_id, theatre_id, starts_at, ends_at, language_id) VALUE (6, 7, '2019-06-12', '2019-12-01', 3);
 INSERT INTO play_has_theatre(play_id, theatre_id, starts_at, ends_at, language_id) VALUE (6, 9, '2019-03-01', '2019-05-30', 3);
 
--- select * from sights;
+-- -----------------------------------------------------
+-- SELECT STATEMENTS
+-- -----------------------------------------------------
 
--- SELECT * FROM country, city WHERE country.country_id = city.country_id;
+-- -----------------------------------------------------
+-- 1. Select restourants in Saint Petersburg with rating grater than 3.5
+-- -----------------------------------------------------
+SELECT r.name, r.opens_at, r.closes_at, r.description, r.phone, r.rate
+	FROM restourant AS r 
+		INNER JOIN address AS a ON r.address_id = a.address_id 
+        INNER JOIN city AS c ON a.city_id = c.city_id
+        INNER JOIN country AS cntr on c.country_id = cntr.country_id
+			WHERE r.rate > 2 AND cntr.country_id = 1 AND c. city_id = 1
+				ORDER BY r.rate DESC;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 2. Select top five countries with the longest rivers 
+-- -----------------------------------------------------
+SELECT c.name AS 'Country', r.name AS 'River', r.description, r.image, chr.length_in_country
+	FROM river AS r
+		INNER JOIN country_has_river AS chr ON r.river_id = chr.river_id
+        LEFT JOIN country AS c ON chr.country_id = c.country_id
+			ORDER BY chr.length_in_country DESC
+            LIMIT 5;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 3. Select cities which don't have any sights
+-- -----------------------------------------------------
+SELECT c.name AS 'Country', city.name AS 'City'
+	FROM country AS c
+		INNER JOIN city ON c.country_id = city.country_id
+			WHERE city.city_id NOT IN (SELECT city.city_id FROM sights AS s
+								INNER JOIN address AS a ON s.address_id = a.address_id
+                                INNER JOIN city ON a.city_id = city.city_id
+                                INNER JOIN country AS c ON c.country_id = city.country_id);
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 4. Select cities which have sights
+-- -----------------------------------------------------
+SELECT c.name AS 'Country', city.name AS 'City'
+	FROM country AS c
+		RIGHT JOIN (SELECT city.country_id, city.name FROM sights AS s
+								INNER JOIN address AS a ON s.address_id = a.address_id
+                                INNER JOIN city ON a.city_id = city.city_id
+									GROUP BY city.name) AS city ON c.country_id = city.country_id;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 5. Select hotels with rate more than 3 and theatres placed on one street 
+-- -----------------------------------------------------
+SELECT ha.name AS 'Hotel', ha.rate AS 'Hotel rating', ta.name AS 'Theatre', ha.street AS 'Street', ha.house AS 'Hotel house number', ta.house AS 'Theatre house number'
+	FROM (SELECT a.address_id, a.street, a.house, a.city_id, h.name, h.rate
+			FROM hotel AS h, address AS a WHERE h.address_id = a.address_id) AS ha 
+		INNER JOIN (SELECT a.street, a.house, a.city_id, t.name
+			FROM theatre AS t, address AS a WHERE t.address_id = a.address_id) AS ta ON ha.city_id = ta.city_id
+            WHERE ta.street = ha.street
+			GROUP BY ha.street HAVING ha.rate > 3;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 6. Select sights and museums
+-- -----------------------------------------------------
+(SELECT m.name, m.description, m.image, a.street, a.house, c.name
+	FROM museum AS m, address AS a, city AS c
+		WHERE m.address_id = a.address_id AND a.city_id = c.city_id) 
+UNION
+(SELECT s.name, s.description, s.image, a.street, a.house, c.name
+	FROM sights AS s, address AS a, city AS c
+		WHERE s.address_id = a.address_id AND a.city_id = c.city_id);    
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 7. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 8. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 9. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 10. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 11. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 12. Select 
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+
