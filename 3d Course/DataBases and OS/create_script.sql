@@ -64,7 +64,7 @@ DROP TABLE IF EXISTS `tour_agency`.`address` ;
 
 CREATE TABLE IF NOT EXISTS `tour_agency`.`address` (
   `address_id` INT NOT NULL,
-  `street` MEDIUMTEXT NULL,
+  `street` VARCHAR(255) NULL,
   `house` INT NULL,
   `city_id` INT NOT NULL,
   PRIMARY KEY (`address_id`),
@@ -786,7 +786,44 @@ SELECT * FROM language;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- ------------------------VIEW------------------------
+-- ------------------------VIEW-------------------------
 -- -----------------------------------------------------
 
+-- -----------------------------------------------------
+-- Temporary table which contains information about museums and their addresses
+-- -----------------------------------------------------
+CREATE TEMPORARY TABLE tmp_museum_and_address 
+	SELECT m.name, m.opens_at, m.closes_at, m.description, m.image, a.street, a.house, c.name AS city, cntr.name AS country
+    FROM museum AS m, address AS a, city AS c, country AS cntr
+		WHERE m.address_id = a.address_id AND a.city_id = c.city_id AND c.country_id = cntr.country_id;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Select information about museums in Russia
+-- -----------------------------------------------------
+SELECT * FROM tmp_museum_and_address AS tmp
+	WHERE tmp.city = 'Saint Petersburg';
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Drop temporary table
+-- -----------------------------------------------------
+DROP TABLE tmp_museum_and_address;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- --------------INDEX CREATION OPERATORS---------------
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 1. Index that provides unique play name
+-- -----------------------------------------------------
+CREATE UNIQUE INDEX unique_play_name ON play (name);
+DROP INDEX unique_play_name ON play;
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- 2. Multiple-column index
+-- -----------------------------------------------------
+CREATE INDEX street_house ON address (street, house);
 -- -----------------------------------------------------
