@@ -642,7 +642,7 @@ SELECT r.name, r.opens_at, r.closes_at, r.description, r.phone, r.rate
 SELECT c.name AS 'Country', r.name AS 'River', r.description, r.image, chr.length_in_country
 	FROM river AS r
 		INNER JOIN country_has_river AS chr ON r.river_id = chr.river_id
-        LEFT JOIN country AS c ON chr.country_id = c.country_id
+        RIGHT JOIN country AS c ON chr.country_id = c.country_id
 			ORDER BY chr.length_in_country DESC
             LIMIT 5;
 -- -----------------------------------------------------
@@ -662,12 +662,12 @@ SELECT c.name AS 'Country', city.name AS 'City'
 -- -----------------------------------------------------
 -- 4. Select cities which have sights
 -- -----------------------------------------------------
-SELECT c.name AS 'Country', city.name AS 'City'
+SELECT c.name AS 'Country', ct.name AS 'City'
 	FROM country AS c
-		RIGHT JOIN (SELECT city.country_id, city.name FROM sights AS s
+		INNER JOIN (SELECT city.country_id, city.name FROM sights AS s
 								INNER JOIN address AS a ON s.address_id = a.address_id
                                 INNER JOIN city ON a.city_id = city.city_id
-									GROUP BY city.name) AS city ON c.country_id = city.country_id;
+									GROUP BY city.name) AS ct ON c.country_id = ct.country_id;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
@@ -790,25 +790,26 @@ SELECT * FROM language;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Temporary table which contains information about museums and their addresses
+-- View information about sights and their addresses
 -- -----------------------------------------------------
-CREATE TEMPORARY TABLE tmp_museum_and_address 
-	SELECT m.name, m.opens_at, m.closes_at, m.description, m.image, a.street, a.house, c.name AS city, cntr.name AS country
-    FROM museum AS m, address AS a, city AS c, country AS cntr
-		WHERE m.address_id = a.address_id AND a.city_id = c.city_id AND c.country_id = cntr.country_id;
+CREATE VIEW view_sights_and_address  AS
+	SELECT s.name, s.description, s.image, a.street, a.house, c.name AS city, cntr.name AS country
+    FROM sights AS s, address AS a, city AS c, country AS cntr
+		WHERE s.address_id = a.address_id AND a.city_id = c.city_id AND c.country_id = cntr.country_id;
+
+
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Select information about museums in Russia
+-- Select sights ordered by Country
 -- -----------------------------------------------------
-SELECT * FROM tmp_museum_and_address AS tmp
-	WHERE tmp.city = 'Saint Petersburg';
+SELECT * FROM view_sights_and_address ORDER BY country;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
 -- Drop temporary table
 -- -----------------------------------------------------
-DROP TABLE tmp_museum_and_address;
+DROP VIEW view_sights_and_address;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
@@ -861,9 +862,7 @@ DROP PROCEDURE IF EXISTS AddDistanceBetweenCities;
 DELIMITER $$
 CREATE PROCEDURE AddDistanceBetweenCities (from_city_id INT, to_city_id INT, distance DOUBLE)
 BEGIN
-	DECLARE roadCount INT DEFAULT 0;
-    SELECT COUNT(*) INTO roadCount FROM distance_between_cities WHERE (city_city_id = from_city_id AND city_city_id1 = to_city_id) OR (city_city_id1 = from_city_id AND city_city_id = to_city_id);
-	IF (roadCount = 0) AND (from_city_id != to_city_id)
+	IF NOT EXISTS (SELECT * FROM distance_between_cities WHERE (city_city_id = from_city_id AND city_city_id1 = to_city_id) OR (city_city_id1 = from_city_id AND city_city_id = to_city_id)) AND (from_city_id != to_city_id)
     THEN 
 		INSERT INTO distance_between_cities(city_city_id, city_city_id1, distance) VALUE (from_city_id, to_city_id, distance);
     END IF;
@@ -872,6 +871,6 @@ DELIMITER ;
 
 CALL AddDistanceBetweenCities (1,3,111);
 
-
+DELETE FROM distance_between_cities WHERE city_city_id = 1 AND city_city_id1 = 3;
 SELECT * FROM distance_between_cities;
 -- -----------------------------------------------------
