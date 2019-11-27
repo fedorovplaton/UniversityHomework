@@ -9,7 +9,7 @@ y0 = [
      ];
  
 t0 = 0;
-h = 0.01; % try: h = 0.01
+h = 0.001; % try: h = 0.01, 0.001
 tn = 0.5; % equal to: t0 + h*n, with n the number of steps
 
 [t, y] = Euler(t0, y0, h, tn, A);

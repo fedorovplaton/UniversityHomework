@@ -4,8 +4,8 @@ clear; clc; close('all');
 %% Matrix
 A = [
         -0.82005    -0.13542    0.26948;
-        -0.13542    0.51486     2;
-        0.26948     2     -0.83365
+        -0.13542    0.51486     0.02;
+        0.26948     0.02     -0.83365
      ];
 
 b = [
@@ -14,12 +14,12 @@ b = [
         3
      ];
  
- x = SimpleIteration(A, b, 0.1);
+ x = SimpleIteration(A, b, 0.00001);
  
  disp('Answer:');
  disp(x);
  
- x = Seidel(A, b, 0.1);
+ x = Seidel(A, b, 0.00001);
  
  disp('Answer:');
  disp(x);
