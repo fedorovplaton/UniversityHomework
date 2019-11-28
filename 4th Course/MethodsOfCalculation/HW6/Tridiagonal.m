@@ -20,7 +20,7 @@ function [x, y] = Tridiagonal(a, b, h, alpha1, alpha2, alpha, beta1, beta2, beta
     G(n + 2) = beta;
     
     s(1) = C(1) / B(1);
-    t(1) = -G(1) / B(1);
+    t(1) = - G(1) / B(1);
     
     for i = 2:n+1
         Pi = P(x(i));

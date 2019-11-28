@@ -1,4 +1,5 @@
 function [q] = Q(x)
-    q = 1 + x / 2;
+    q = x;
+%     q = 1 + x / 2;
 end
 
