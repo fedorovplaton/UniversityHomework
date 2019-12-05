@@ -9,7 +9,7 @@ A = [
      ];
  
  [X, lambda] = Jacobi(A, 0.0000001);
- 
+ format long;
  disp('Eigenvectors by Jacobi:');
  disp(X);
  disp('Eigenvalues by Jacobi:');
