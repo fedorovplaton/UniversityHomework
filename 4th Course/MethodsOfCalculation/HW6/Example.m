@@ -1,7 +1,8 @@
 clear; clc; close('all');
 
 %% Inputs:
-% specify p, q, r, f -p*y'' + q*y' + r*y = f in respective functions
+% specify p, q, r, f p*y'' + q*y' + r*y = f in respective functions
+% One note: in this method assumed that L = p*y'' + q*y' + r*y = f. Thanks Vlad for catching this)
 
 % specify step
 h = 0.001;
