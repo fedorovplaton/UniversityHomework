@@ -15,9 +15,9 @@ function [x, y] = Tridiagonal(a, b, h, alpha1, alpha2, alpha, beta1, beta2, beta
     C(1) = alpha1/2 - alpha2/h;
     G(1) = alpha;
     
-    A(n + 2) = beta1/2 - beta2/h;
-    B(n + 2) = -beta1/2 - beta2/h;
-    G(n + 2) = beta;
+%     A(n + 2) = beta1/2 - beta2/h;
+%     B(n + 2) = -beta1/2 - beta2/h;
+%     G(n + 2) = beta;
     
     s(1) = C(1) / B(1);
     t(1) = - G(1) / B(1);

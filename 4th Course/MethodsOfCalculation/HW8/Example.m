@@ -2,21 +2,44 @@ clear; clc; close('all');
 
 %% Inputs:
 % specify step
-h = 0.001;
+N = 10;
+M = 100;
+T = 0.1;
 
-% specify boundaries
-a = -1;
-b = 1;
+[explicitSolution, x, t] = explicitScheme(T, N, M);
 
-% specify amount of coordinate functions
-n = 7;
+exactSolution = zeros(size(explicitSolution));
 
-%% Calculations:
-% Using Galerkin method
-
-
+for i = 1:M+1
+    for j = 1:N+1
+        exactSolution(i, j) = x(j) + t(i);
+    end
+end
 
 figure;
-fplot(y, [a b], 'b');
-title('Result plot');
-hold('on');
+surf(x, t, explicitSolution);
+title('Explicit scheme');
+xlabel('X');
+ylabel('T');
+zlabel('U');
+
+figure;
+surf(x, t, exactSolution);
+title('Exact solution');
+xlabel('X');
+ylabel('T');
+zlabel('U');
+
+[implicitSolution, x, t] = implicitScheme(T, N, M);
+
+disp('Explicit deviations');
+disp(abs(explicitSolution(M+1,:) - exactSolution(M+1,:))');
+disp('Implicit deviations');
+disp(abs(implicitSolution(M+1,:) - exactSolution(M+1,:))');
+
+figure;
+surf(x, t, implicitSolution);
+title('Implicit scheme');
+xlabel('X');
+ylabel('T');
+zlabel('U');

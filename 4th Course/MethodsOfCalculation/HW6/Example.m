@@ -43,7 +43,7 @@ end
 function F=fun(x,y)
 F=[
     y(2);
-%    (3-x) * (2 - x - exp(x/2) * y(1) - (1 + x/2) * y(2))
+%     (3-x) * (2 - x - exp(x/2) * y(1) - (1 + x/2) * y(2))
     (x*x -x * y(2) - (1 - sin(x))* y(1)) *(x+2)/(x-2)
    ];
 end
